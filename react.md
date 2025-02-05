@@ -439,3 +439,186 @@ a reducer function.
 - use a library like React Loadable to handle code splitting
 
 
+
+
+
+
+
+# #######################################################
+
+https://github.com/sudheerj/reactjs-interview-questions
+
+For react
+1. Difference between functional and class component
+2. Explain hooks
+3. HOC
+4. Pure component
+5. Lifecycle methods of React
+6. Real vs virtual dom difference
+7. Stateful vs stateless component
+8. Context API
+9. Redux, redux middleware
+10. Routing in React
+
+
+
+
+Top React Js interview questions to prepare From The video:
+
+1) Hooks: Prepare this in order
+
+- useState
+- useEffect
+- useContext
+- useReducer
+- useMemo
+- useCallback
+- useRef
+
+2) Higher Order Components (HOC):
+
+- What?
+- When?
+- Why?
+- How?
+
+3) Life Cycle Methods of Components:
+
+- Class Components
+- Mounting
+- Updating
+- Unmounting
+
+4) State management (all about data):
+
+- State/Props
+- Props drilling
+- Context
+
+5) Redux or Zustand:
+
+- How redux works?
+- Why?
+- When?
+- Redux Toolkit (RTK)
+
+6) Custom Hooks:
+
+- When to use?
+- Code
+- Why? (to make code clean, maintainable, readable, reusable)
+
+7) Lazy Loading (Very imp and highly asked):
+
+- Code splitting
+- Chunking
+- Suspense
+
+8) Virtual DOM:
+
+- Reconciliation Algorithm
+- React Fiber
+- Renders
+- Diff algorithm
+- How does render work?
+
+9) SSR vs CSR (important) :
+
+- What?
+- Difference
+- SEO and performance (SSR)
+
+10) Routing (Role-based access control-RBAC)
+
+- react-router
+- How do you manage protected routes?
+- How do you handle routes?
+- query params
+- Dynamic routing
+
+11) Testing
+
+- React Testing Library
+- Unit Testing
+
+Hack for interview: Try to mention that the code you wrote is testable and try to write test cases.
+
+12) Async Tasks
+
+- API Calls
+- useEffect in depth
+- Events
+- Promises
+- setTimeout
+
+13) Reusability, Readability, modularity, testability (Coding Practices)
+
+14) Performance 
+
+- Lazy loading
+- Asset optimization (how do you optimize js, css code)
+- Writing optimized code
+- Bundler
+- CDN / Server level
+- Rendering of components
+
+15) Styling
+
+- Tailwind
+- StyleX
+- Bootstrap
+- Material UI
+- Ant UI
+- CSS / SCSS
+
+16) Accessibility
+
+17) Security
+
+
+What are error boundaries?
+What is the use of useEffect React Hook?
+redux and its usage
+
+
+
+
+
+
+## javascript
+ Closures
+ Execution Context and Scope
+ Asynchronous JavaScript
+ Promises, async/await, callbacks
+ Higher-Order Functions - map, filter, reduce
+Event Delegation
+Hoisting
+Spread and Rest Operators
+Execution Context, Call Stack, and Memory Heap
+
+
+
+
+## react 
+Component Lifecycle Methods (Class Components)
+State and Props
+Hooks 
+redux
+React Router
+React State Management
+Handling Forms
+Performance Optimization
+Code Splitting and Lazy Loading
+Error Boundaries
+ React Context API
+ React Refs
+ Keys in React
+Immutable State
+Shallow Rendering
+
+
+
+
+
+
+

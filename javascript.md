@@ -440,6 +440,86 @@ fetchData();
 
 
 
+### array methods 
+
+# 1. push()
+Purpose: Adds one or more elements to the end of an array and returns the new length of the array.
+Example:
+    let arr = [1, 2, 3];
+    arr.push(4); // arr is now [1, 2, 3, 4]
+
+# 2. pop()
+Purpose: Removes the last element from an array and returns that element.
+Example:
+    let arr = [1, 2, 3];
+    let last = arr.pop(); // last is 3, arr is now [1, 2]
+
+
+# 3. shift()
+Purpose: Removes the first element from an array and returns that element.
+Example:
+
+    let arr = [1, 2, 3];
+    let first = arr.shift(); // first is 1, arr is now [2, 3]
+
+# 4. unshift()
+Purpose: Adds one or more elements to the beginning of an array and returns the new length of the array.
+Example:
+
+    let arr = [1, 2, 3];
+    arr.unshift(0); // arr is now [0, 1, 2, 3]
+
+# 5. splice()
+Purpose: Adds or removes elements from an array at a specific index.
+Example:
+
+    let arr = [1, 2, 3, 4];
+    arr.splice(1, 2); // arr is now [1, 4]
+    arr.splice(1, 0, 'a', 'b'); // arr is now [1, 'a', 'b', 4]
+
+# 6. slice()
+Purpose: Returns a shallow copy of a portion of an array into a new array object.
+Example:
+
+    let arr = [1, 2, 3, 4];
+    let newArr = arr.slice(1, 3); // newArr is [2, 3], arr is unchanged
+
+# 7. concat()
+Purpose: Merges two or more arrays into a new array.
+Example:
+
+    let arr1 = [1, 2];
+    let arr2 = [3, 4];
+    let mergedArr = arr1.concat(arr2); // mergedArr is [1, 2, 3, 4]
+
+# 8. forEach()
+Purpose: Executes a provided function once for each array element.
+Example:
+
+let arr = [1, 2, 3];
+arr.forEach(function(item) {
+  console.log(item); // logs 1, then 2, then 3
+});
+
+# 9. map()
+Purpose: Creates a new array with the results of calling a provided function on every element in the calling array.
+Example:
+
+    let arr = [1, 2, 3];
+    let doubled = arr.map(function(item) {
+      return item * 2;
+    }); // doubled is [2, 4, 6]
+
+# 10. filter()
+Purpose: Creates a new array with all elements that pass the test implemented by the provided function.
+Example:
+
+    let arr = [1, 2, 3, 4];
+    let even = arr.filter(function(item) {
+      return item % 2 === 0;
+    }); // even is
+
+
 
 
 
