@@ -218,3 +218,10 @@ function multiplyBy(multiplier) {
 const double = multiplyBy(2);
 // console.log(double(5));  // 10
 
+for (var index = 0; index < 3; index++) {
+  // const element = array[index];
+  setTimeout(function() {
+    alert(index);
+  },1000+index);
+  
+}

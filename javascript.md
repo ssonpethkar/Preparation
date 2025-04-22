@@ -577,3 +577,198 @@ Example:
 
 ---
 
+# ************************************************************************************
+# to prepare 
+1. Explain between prototype and _proto_
+2. Explain between `this` and `self`
+3. What are decorators in javascript 
+    Decorators are function that modify classes or methods. They are experimental features
+
+4. What is Object.create() used for?
+    it creates new object with a specified prototype
+
+5. What is weakMap and how it is different from map ?
+    weakMap : keys are only object and are garbage collected
+    map : keys can be any type
+
+6. What is the new keyword used for?
+    the new keyword creates an instance of an object from a constrctor function
+
+
+7. What are generator functions ?
+    Generators are special functions that can be pause execution and resume later
+
+8. how can you prevent a function from being called multiple times ?
+    you can use a debounce function 
+
+9. Javascript modules 
+    modules allows you to organize code into reusable files using import and export 
+
+10. javascript prototypes 
+    Prototypes allow object to inherit properties and methods from other objects
+
+
+11. Javascript ES6 features 
+    # 1. Arrow function
+    # 2. Template literals
+    # 3. let and const
+    # 4. Classes
+    # 5. Promises
+    # 6. async/await
+    # 7. Destructuring assignment
+    # 8. Spread operator
+    # 9. Rest parameter
+    # 10. Default parameter
+    # 11. Map and set 
+    # 12. modules
+    # 13. map, filter, reduce methods 
+
+
+
+## javascript weird parts
+1. zero and empty string 
+
+    0 == false   // true (it's due to implicit type coercion which happens when the loose equality operator is used)
+    '0' == false // true ( empty string behaves same)
+
+    - In the above example, false is coerced to 0 and 0 is equal to 0, so it returns true. But if we use strict equality operator (===) it will return false because false is not equal to 0.
+
+2. Null 
+    null <= 0 // true (null is coerced to 0)
+    null >= 0 // true (null is coerced to 0)
+
+    in javascript, when the comparison operators such as >=, =<, >, < are used with null, it is coerced to 0. So it will return true for >= and <= and false for > and <.
+
+    0 <= 0 // true 
+    0 >= 0 // true 
+
+3. NaN 
+    NaN == NaN // false (NaN is not equal to NaN)
+
+    The NaN global property in javascript is a value representing Not-A-Number.
+    It reperesents the result of an operation that does not produce a well-defined numerical result
+    It's a behavior can be confusing as it is not equal to any other value in javascript, including itself.
+
+4. Objects  
+{} == {} // false (two different objects)
+{} === {} // false (two different objects)
+{} == null // false (object is not equal to null)
+{} === null // false (object is not equal to null)
+ 
+Ex. 
+let obj1 = {name: 'Swati',lastName : 'Sonpethkar'}
+let obj2 = {name: 'Swati',lastName : 'Sonpethkar'}
+
+obj1 == obj2 // false (two different objects)
+obj1 === obj2 // false (two different objects)
+
+Even though obj1 and obj2 have same structure and content, they are two separate objects stored in different locations in memory.
+
+Primitive values like number, string, boolean, null, undefined are stored in stack & compared by value. and objects are stored in heap and its compared by reference. So even if two objects have same structure and content, they are two different objects stored in different locations in memory.
+
+
+
+# 5. substraction of string
+'abc' - 'a' // 'bc' (it's due to the way substr action is implemented in javascript) 
+'abc' - 'ab' // 'c' (it's due to the way substr action is implemented in javascript)
+'ab' - 'cd' // NaN (it's due to the way substr action is implemented in javascript)
+
+when we try to substract one string from another, javascript attempts to convert those string to numbers and then perform the subtraction. If the conversion fails, it returns NaN. If the conversion is successful, it returns the result of the subtraction.  
+
+# 6. logical operators 
+- AND (&&) and OR (||) operators in javascript are short-circuit operators. They stop evaluating the expression as soon as they determine the result. 
+- AND (&&) operator returns true if both the operands are true. If the first operand is false , it returns false. If the first operand is true, it evaluates the second operand and returns the result.
+- OR (||) operator returns true if either of the operands is true. If both the operands are false, it returns false.
+
+true || 'hello' // true (returns the 1st truthy value it encounters or the last value if none are truthy)
+true && 'hello' // 'hello' (returs the 1st falsy value it encounters or the last value if none are falsy)
+
+
+# 7. arrays and loose equality 
+Array(3) == ",," // true
+
+Array(3) in js creates a new array with a length of 3, but without initialization the element
+
+means its look like this [undefined, undefined, undefined]
+
+when comparing values of different types using ==, javascript attempts to convert the operands to a common type before making the comparison 
+
+In this case, the array [undefined, undefined, undefined] is converted to a string ",," which is equal to the string ",," on the right side of the == operator. Hence the comparison returns true.
+
+
+## 1. destructuring
+    is a convenient way to extract values from arrays or objects and assign them to variables.
+    it is a shorthand for creating variables and assigning them the values from an array or object.
+    it is a way to unpack values from arrays or objects into distinct variables.
+    it is a way to assign values from an array or object to variables in a more readable and concise way.
+    it is a way to create new variables and assign them the values from an array or object.
+
+
+# Destructuring Arrays
+1. Basic Array Destructuring 
+
+    const numbers = [1,2,3,4,5];
+    const [first, second, third] = numbers;
+    console.log(first) // 1
+    console.log(second) // 2
+    console.log(third) // 3
+
+    this example takes an array numbers and extracts its value into variables first, second, third.
+    each variable holds one value from the array respectively
+
+
+2. Changing variables names
+    const person = {name: 'John', age: 30};
+    const {name: newName, age: newAge} = person;    
+    console.log(newName) // John
+    console.log(newAge) // 30
+
+    this example takes an object person and extracts its value into variables newName and newAge.
+    each variable holds one value from the object respectively.
+    the name of the variable is changed using the syntax {name: newName, age: newAge
+
+
+3. Default values 
+    const person = {name: 'John', age: 30};
+    const {name, age = 25, job: "xcaliber"} = person;
+    console.log(name) // John
+    console.log(age) // 30
+    console.log(job) // xcaliber
+
+
+# Destructuring objects 
+1. basic object destructuring 
+
+const person = {name: 'John', age: 30};
+const {name, age} = person;
+console.log(name) // John
+console.log(age) // 30
+
+in this case we have an object person with two properties name and age.
+
+We  extract these properties directly into variables name and age
+
+2. Skipping values 
+you can skip values by not declaring them in the destructuring assignment.
+   
+    const numbers = [1,2,3,4,5,6]
+    const [first, , third] = numbers;
+    console.log(first) // 1
+    console.log(third) // 3
+
+    Here were still destructing numbers, but we're skipping the second value in the array.
+    So  first gets the first value and third gets the third value.
+    The second value is skipped.
+
+
+3. Rest operators ( it collects remaining items into a new array)
+    
+    const numbers = [1,2,3,4,5,6]
+    const [first, ...rest] = numbers;
+    console.log(first) // 1
+    console.log(rest) // [2,3,4,5,6]
+
+    using rest operator we can collect all the remaining items into a new array called rest.
+    
+
+
