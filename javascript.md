@@ -202,7 +202,7 @@ function curriedFunction(param1) {
 
 18. What is the difference between `.map()`, `.filter()`, and `.reduce()`?  
     map() : transforms each element of an array and returns a new array 
-    filter : returns an new array with elements that satisfy a conditio
+    filter : returns an new array with elements that satisfy a condition
     reduce : reduce an array to a single value
 
     ```javascript
@@ -437,6 +437,505 @@ fetchData();
     })();
 
 
+
+### 1. **Callbacks**  
+- A **callback** is a function you pass into another function **to be called later**.
+- It's the old-school way of handling async stuff (like reading files, fetching data).
+
+```javascript
+function getData(callback) {
+  setTimeout(() => {
+    callback("Here is your data");
+  }, 1000);
+}
+
+getData((data) => {
+  console.log(data); // prints after 1 second
+});
+```
+🔵 **Problem**: Callbacks can get messy ("callback hell") if you have a lot of them nested.
+
+
+
+### 2. **Promises**  
+- A **Promise** is an object that represents the **future result** of an async operation.
+- It can be in 3 states: **pending**, **fulfilled**, or **rejected**.
+- You use `.then()` for success and `.catch()` for errors.
+
+```javascript
+const getData = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Here is your data");
+    }, 1000);
+  });
+};
+
+getData()
+  .then((data) => console.log(data))   // on success
+  .catch((err) => console.error(err)); // on failure
+```
+
+🔵 **Benefit**: Cleaner than callbacks, especially for chaining operations.
+
+
+
+### 3. **async/await**  
+- **async/await** is just **syntactic sugar** over Promises to make async code look **synchronous** and clean.
+- You write `async` before a function, and inside it you can `await` Promises.
+
+```javascript
+const getData = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Here is your data");
+    }, 1000);
+  });
+};
+
+async function fetchData() {
+  const data = await getData();
+  console.log(data);
+}
+
+fetchData();
+```
+🔵 **Benefit**: Code looks neat, readable, and feels like normal step-by-step instructions.
+
+
+
+**Summary:**
+| Method        | Style        | Pros                          | Cons                  |
+|---------------|--------------|-------------------------------|-----------------------|
+| Callbacks     | Old way       | Simple cases                  | Messy for complex flows |
+| Promises      | Modern way    | Better error handling, chaining | Still a bit verbose   |
+| Async/Await   | Newest & cleanest | Clean, easy to read        | Must be inside `async` |
+
+
+
+ **simple real-world example** using all three ways:  
+Let’s say we want to **"fetch user info"** after **1 second**.
+
+---
+
+### 1. **Using Callback**
+
+```javascript
+function fetchUser(callback) {
+  setTimeout(() => {
+    callback("👤 User data (callback)");
+  }, 1000);
+}
+
+fetchUser((user) => {
+  console.log(user);
+});
+```
+**Problem:**  
+- If you need to fetch posts *after* fetching user... and comments *after* posts... it becomes crazy nested (callback hell).
+
+---
+
+### 2. **Using Promise**
+
+```javascript
+function fetchUser() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("👤 User data (promise)");
+    }, 1000);
+  });
+}
+
+fetchUser()
+  .then((user) => {
+    console.log(user);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+```
+**Better:**  
+- You can **chain** `.then()` easily for multiple steps.
+
+---
+
+### 3. **Using Async/Await**
+
+```javascript
+function fetchUser() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("👤 User data (async/await)");
+    }, 1000);
+  });
+}
+
+async function displayUser() {
+  const user = await fetchUser();
+  console.log(user);
+}
+
+displayUser();
+```
+**Best:**  
+- Looks like normal, sequential code.
+- Easier to add `try/catch` for error handling too:
+
+```javascript
+async function displayUser() {
+  try {
+    const user = await fetchUser();
+    console.log(user);
+  } catch (error) {
+    console.error(error);
+  }
+}
+```
+
+---
+
+> ⚡ **In short**:  
+> - **Callback** = Pass a function and pray for order 😂  
+> - **Promise** = Neater and allows chaining.  
+> - **Async/Await** = Looks like magic, but it's built on Promises.
+
+---
+
+### Slice vs Splice
+
+       Feature          |              slice()                           |               splice()
+Purpose                 | Returns a part of an array without             | Changes (adds/removes) elements in the original array.
+                            modifying the original array. 
+Mutates Original Array? | ❌ No (returns a new array)                    | ✅ Yes (modifies the original array)
+Return Value            | A new array containing the extracted elements. | An array containing the deleted elements (if any).
+Arguments               | slice(start, end)                              | splice(start, deleteCount, item1, item2, ...)
+Use Case                | To copy or extract a portion of an array.      | To remove, replace, or add elements in an array.
+
+
+## uses of slice and splice 
+    - Use slice() when you want a copy without changing the original array.
+    - Use splice() when you want to modify the original array by adding, removing, or replacing items.
+
+
+## Ex. slice (array.slice(startIndex, endIndex);)
+const fruits = ["apple", "banana", "cherry", "date", "fig"];
+
+const slicedFruits = fruits.slice(1, 4);
+
+console.log(slicedFruits); // Output: ["banana", "cherry", "date"]
+console.log(fruits);       // Original array is unchanged
+
+
+
+## Ex, splice (array.splice(startIndex, deleteCount, item1, item2, ...);)
+
+<!-- Example 1 - Remove elements: -->
+const fruits = ["apple", "banana", "cherry", "date", "fig"];
+const removedFruits = fruits.splice(2, 2);
+
+console.log(removedFruits); // Output: ["cherry", "date"]
+console.log(fruits);        // Output: ["apple", "banana", "fig"]
+
+
+<!-- Example 2 - Add elements: -->
+const fruits = ["apple", "banana", "fig"];
+fruits.splice(2, 0, "cherry", "date");
+
+console.log(fruits); // Output: ["apple", "banana", "cherry", "date", "fig"]
+
+
+<!-- Example 3 - Replace elements: -->
+const fruits = ["apple", "banana", "cherry"];
+fruits.splice(1, 1, "blueberry");
+console.log(fruits); // Output: ["apple", "blueberry", "cherry"]
+
+
+
+parent = root
+child = target
+
+## data structures in javascripts
+
+In JavaScript, **data structures** are used to store and organize data efficiently. Below is a list of **common data structures** in JavaScript, categorized into **primitive**, **non-primitive (complex)**, and **special structures**:
+
+---
+
+## 🧱 1. **Primitive Data Types** (Not structures, but foundation)
+These are basic data types:
+- `Number`
+- `String`
+- `Boolean`
+- `Null`
+- `Undefined`
+- `BigInt`
+- `Symbol`
+
+They are **not** collections or containers, but are used **within** structures.
+
+---
+
+## 📦 2. **Non-Primitive Data Structures (Objects)**
+
+### a. **Array**
+- Ordered collection of elements (indexed).
+- Mutable and dynamic.
+```javascript
+const fruits = ["apple", "banana", "cherry"];
+```
+
+✅ Use case: List of items.
+
+---
+
+### b. **Object**
+- Key-value pairs.
+- Keys are strings (or symbols), values can be anything.
+```javascript
+const person = {
+  name: "Alice",
+  age: 25,
+  isStudent: false
+};
+```
+
+✅ Use case: Represent structured data (like JSON).
+
+---
+
+### c. **Map**
+- Like objects, but allows any data type as keys.
+- Maintains insertion order.
+```javascript
+const map = new Map();
+map.set('name', 'Bob');
+map.set(123, 'value');
+```
+
+✅ Use case: When you need keys of any type or ordered iteration.
+
+---
+
+### d. **Set**
+- Stores unique values (no duplicates).
+- Values can be of any type.
+```javascript
+const set = new Set([1, 2, 2, 3]);
+console.log(set); // Set(3) {1, 2, 3}
+```
+
+✅ Use case: Remove duplicates, check existence.
+
+---
+
+## ⛓ 3. **Advanced / Custom Data Structures**
+You can implement more complex data structures using objects or classes:
+
+### a. **Stack (LIFO)**  
+```javascript
+const stack = [];
+stack.push(1);   // Add to top
+stack.pop();     // Remove from top
+```
+
+✅ Use case: Undo functionality, function call stack.
+
+---
+
+### b. **Queue (FIFO)**
+```javascript
+const queue = [];
+queue.push(1);     // Add to end
+queue.shift();     // Remove from front
+```
+
+✅ Use case: Task scheduling, print queue.
+
+---
+
+### c. **Linked List**
+- Not built-in, but can be implemented with objects.
+```javascript
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+```
+
+✅ Use case: Efficient inserts/removals, dynamic memory allocation.
+
+---
+
+### d. **Tree, Graph, Heap, Trie**
+- These are **not built-in** but can be **implemented manually** for complex use cases like:
+  - **Tree**: DOM, JSON
+  - **Graph**: Networks, routes
+  - **Heap**: Priority queues
+  - **Trie**: Auto-complete
+
+---
+
+## 📌 Summary Table
+
+| Structure   | Ordered | Unique | Key Type       | Example Use Case         |
+|-------------|---------|--------|----------------|--------------------------|
+| Array       | ✅      | ❌     | Index-based    | Lists, Iteration         |
+| Object      | ❌      | ❌     | Strings/Symbols| Key-value storage        |
+| Map         | ✅      | ✅     | Any type       | Ordered key-value pairs  |
+| Set         | ✅      | ✅     | Value only     | Unique value collections |
+| Stack       | ✅      | ❌     | Index          | Undo, backtracking       |
+| Queue       | ✅      | ❌     | Index          | Task queues              |
+
+
+*********************************************************************************************************
+
+In JavaScript, **control structures** (also called **control flow statements**) determine the **execution flow** of a program. They allow you to make decisions, repeat code, and handle branching logic.
+
+---
+
+## ✅ **Types of Control Structures in JavaScript**
+
+### 1. **Conditional Statements**
+
+Used to **make decisions** based on conditions.
+
+#### a. `if`, `else if`, `else`
+```javascript
+let age = 18;
+
+if (age < 18) {
+  console.log("Minor");
+} else if (age === 18) {
+  console.log("Just turned adult");
+} else {
+  console.log("Adult");
+}
+```
+
+#### b. `switch`
+Used for multiple condition checks.
+```javascript
+let day = "Monday";
+
+switch (day) {
+  case "Monday":
+    console.log("Start of week");
+    break;
+  case "Friday":
+    console.log("Weekend is near");
+    break;
+  default:
+    console.log("Just another day");
+}
+```
+
+---
+
+### 2. **Looping (Iteration) Statements**
+
+Used to **repeat** a block of code multiple times.
+
+#### a. `for`
+```javascript
+for (let i = 0; i < 5; i++) {
+  console.log("Count:", i);
+}
+```
+
+#### b. `while`
+```javascript
+let i = 0;
+while (i < 3) {
+  console.log("i is", i);
+  i++;
+}
+```
+
+#### c. `do...while`
+```javascript
+let j = 0;
+do {
+  console.log("j is", j);
+  j++;
+} while (j < 3);
+```
+
+#### d. `for...of` (arrays, strings, etc.)
+```javascript
+const fruits = ["apple", "banana"];
+for (const fruit of fruits) {
+  console.log(fruit);
+}
+```
+
+#### e. `for...in` (objects)
+```javascript
+const person = { name: "John", age: 30 };
+for (const key in person) {
+  console.log(key, person[key]);
+}
+```
+
+---
+
+### 3. **Jumping Statements**
+
+#### a. `break`
+Stops the loop immediately.
+```javascript
+for (let i = 0; i < 5; i++) {
+  if (i === 3) break;
+  console.log(i);
+}
+```
+
+#### b. `continue`
+Skips the current iteration.
+```javascript
+for (let i = 0; i < 5; i++) {
+  if (i === 2) continue;
+  console.log(i);
+}
+```
+
+#### c. `return` (inside functions)
+Exits a function and returns a value.
+```javascript
+function greet(name) {
+  return "Hello " + name;
+}
+console.log(greet("Alice"));
+```
+
+---
+
+### 4. **Exception Handling (Flow control on errors)**
+
+#### a. `try...catch`
+```javascript
+try {
+  throw new Error("Something went wrong!");
+} catch (error) {
+  console.log(error.message);
+}
+```
+
+---
+
+## 🧠 Summary of JavaScript Control Structures
+
+| Category           | Statement              | Purpose                        |
+|--------------------|------------------------|--------------------------------|
+| Conditional         | `if`, `else`, `switch` | Decision making                |
+| Looping             | `for`, `while`, `do`   | Repetition                     |
+| Iteration Helpers   | `for...of`, `for...in` | Loop over data structures      |
+| Jumping             | `break`, `continue`    | Control loop execution         |
+| Functions           | `return`               | Exit and return from function  |
+| Error Handling      | `try...catch...finally`| Handle exceptions gracefully   |
+
+---
 
 
 
@@ -771,4 +1270,7 @@ you can skip values by not declaring them in the destructuring assignment.
     using rest operator we can collect all the remaining items into a new array called rest.
     
 
+
+#### Snippest #####
+- https://github.com/anil-sidhu/JavaScript-100-objective-based-questions
 

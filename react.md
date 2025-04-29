@@ -447,6 +447,8 @@ a reducer function.
 # #######################################################
 
 https://github.com/sudheerj/reactjs-interview-questions
+https://www.geeksforgeeks.org/react-interview-questions/
+https://www.interviewbit.com/react-interview-questions/
 
 For react
 1. Difference between functional and class component
@@ -615,6 +617,9 @@ Error Boundaries
  Keys in React
 Immutable State
 Shallow Rendering
+
+# #####################################################################################################
+
 
 
 

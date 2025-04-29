@@ -1,6 +1,33 @@
 
 https://www.naukri.com/code360/library/php-oops-interview-questions
 
+
+
+
+************************** PHP Laravel setup *************************************
+For Windows:
+install XAMPP:
+
+Download and install XAMPP from apachefriends.org.
+XAMPP includes PHP, Apache, and MySQL/MariaDB.
+After installation, ensure XAMPP's PHP is added to your system PATH (you can add it manually if needed).
+
+
+// install composer
+https://getcomposer.org/download/
+
+*********************************************************************************
+
+// commands 
+
+- create project 
+	composer create-project --prefer-dist laravel/laravel project_name
+	
+- Create a controller:
+	php artisan make:controller MyController
+
+
+<!-- ******************************************************************* -->
 <!-- $ is a variable 
     $$ is variable of varible. its treat as a reference variable and value is used as a variable  -->
 ## Difference between $ and $$
