@@ -624,6 +624,348 @@ Shallow Rendering
 
 
 
+# what is react 
+- developed by facebook in 2013
+- react is open source javascript library .
+- react used for building user interfaces (UI)
+- react simplifies the creation of SPA by using reusable components 
+
+# advantages 
+- simple to build single page application(by using components)
+- react is cross platform and open source(free to use)
+- react is lightweight and very fast due to virtual DOM
+- Large community and ecosystem 
+- Testing is easy 
+
+# disadvantages 
+- not  a good choice for small application
 
 
+# SPA ( Single page applications )
+- A single page applications is a web applications have only one single web page 
+- whenever user do some action on the website, then in response content is dynamically updated without refreshing or loading new page
 
+
+# React and Angular
+- React and angular both are used to create single page UI applications using components.
+React - 
+  - react is javascript library
+  - react uses virtual DOM which makes it faster
+  - react is smaller in size and lightweight and therefore faster sometime
+  - react depends on external libraries for many complex feature, so developer has to write many lines of code for complex functionalities.
+  - react is simple to learn and more popular than angular 
+
+Angular - 
+  - angular is complete framework 
+  - angular uses real DOM 
+  - angular is bigger because it is a complete framework 
+  - since angular is complete framework, therefore it provide built in support for features like routing, forms, validation and HTTp requests.
+  - Angular is slightly difficult to learn as it has typescript, oops concept and many more thing.
+
+
+# DOM ( Document object model ):
+  - DOM represents the web page as a tree-like structure which allows javascript to dynamically access and manipulate the content and structure of a web page. 
+ 
+
+# difference between DOM and Virual DOM 
+
+
+| Feature                | DOM (Document Object Model)                           | Virtual DOM                                      |
+|------------------------|-------------------------------------------------------|--------------------------------------------------|
+| **Definition**         | Tree-like structure representing the actual web page  | Lightweight in-memory copy of the real DOM       |
+| **Source**             | Provided by browser                                   | Created and managed by JavaScript frameworks     |
+| **Performance**        | Slower for frequent or complex UI updates             | Faster due to optimized diffing and batching     |
+| **Update Process**     | Direct updates affect the UI immediately              | Updates are calculated and then applied selectively |
+| **Rendering Cost**     | High, as each change triggers re-rendering            | Low, only minimal required changes are applied   |
+| **Use in Frameworks**  | Used in traditional JavaScript                        | Used in modern frameworks like React, Vue        |
+| **Re-rendering**       | Happens for each DOM change                           | Happens only when diff detects a change          |
+| **Efficiency**         | Less efficient for dynamic apps                       | More efficient for dynamic and interactive UIs   |
+| **Visibility**         | Visible and accessible via browser dev tools          | Not visible directly; exists in memory           |
+
+
+- React uses virtual DOM to efficiently update the UI without rerender the entire page, which helps improve performance and make the application more responsive.
+
+
+# React components : 
+  - react component is a reusable building block for creating user interfaces. 
+
+# setup ract project 
+  - install node.js 
+  - to create app
+    cmd : npx create-react-app project-name 
+  - to run project 
+    cmd : npm start
+
+
+## chapter 2 - main files and folder structure
+
+# What is npm and role of node_modules folder ? 
+  - NPM (node package manager)
+  - NPM is used to manage the dependencies for your react project, including the react library itself
+
+# role of public folder 
+  - Public folder contains static assets that are served directly to the user's browser, such as images, fonts, and index.html file
+
+# index.html :
+  this file in a react project is the entry point to the application 
+
+# role of App.js :
+  - App.js is the top/main/root level component in a react application, and it is responsible for rendering all of the other components
+
+# role of function and return inside App.js 
+  -   In react, a function is a javascript function that returns a react element 
+
+# Can we have a function without return inside App.js 
+    yes 
+
+# role of export default inside App.js
+  - It is used to make this App component available for import using "import" statement in other files
+
+
+# what is role of index.js file, ReactDOM and render method in React
+  - ReactDOM : is a javascript library which convert your components( which are written in react syntax) to the actual browser DOM.
+
+  - index.js : is the javascript file which renders all the components and replace the root element of index.html file with the newly rendered root element.
+
+# How react app load and display the components in browser ?
+   
+
+##  chapter 3 : JSX
+
+# what is JSX 
+  - JSX( Javascript XML) is a syntax extension used by react to write HTML-like code.
+  -  JSX is converted to javascript via tools like Babel. 
+  Because browsers understand javascript not JSX.
+
+# Key features of react
+  - 1. virtual DOM : React utilize a virtual representation of the DOM, allowing efficient updates by minimizing direct manipulation of the actual DOM, resulting 
+
+  - 2. Component based architecture
+  - 3. Reusability and composition 
+  - 4. JSX( Javascript XML)
+  - 5. Declarative syntax
+  - 6. community & ecosystem
+  - 7. React hooks 
+
+# advantages of JSX : 
+  - improve code readabilty and writability 
+  - error checking in advance 
+  - support javascript expressions
+  - improved performance 
+  - code reusability
+
+# can browser read JSX file ? what is babel?
+- No, browser will not understand the JSX code directly
+- Babel : in react is used to transpile JSX syntax into regular javascript which browser can understand.
+- babel is transpiler
+
+# What is transpiler 
+  - A transpiler is a tool that convert source code from one programming language to another
+
+# is it possible to use JSX without react ?
+  - yes, it's possible to use JSX without React by creating your own transpiler like babel 
+  - However, this is not recommended since JSX is tightly integrated with react and relies on many react-specific features. 
+
+# role of fragment in react (<></>)
+  -  in a react, a fragment is a way to group a list of children without adding extra nodes to the DOM.
+
+# How do you iterate over a list in JSX? What is map() method?
+  -  map() method allows you to iterate ovar an array and modify its elements using a callback function
+
+
+# what are spread operator?
+  - the spread operator(...) is used to expand or spread an array or object.
+
+# what are the types of conditional rendering in JSX ?
+  - if else 
+  - ternary operator
+  - && operator 
+  - switch statements 
+
+
+# What is difference between declarative and imperative syntax
+
+1. Declarative syntax : 
+  - Declarative syntax focuses on describing the desired result without specifying the step-by-step process
+  - JSX in react is used to write declarative syntax
+
+2. Imperative syntax : 
+  - Imperative syntax involves step by step process to achieve a particular goal.
+  - Javascript has an imperative syntax.
+
+# Arrow function expression in JSX :
+    arrow function expression syntax is a consise way of defining function.
+
+# main files in a react project : 
+  1. index.html : single page for react application
+  2. components/component.js : your application components 
+  3. App.js : main components or container or root components
+  4. App.text.js : used for writing tests for the App.js file
+  5. index.css(optional): This is a global CSS file that serves as the main stylesheet for entire application
+  6. index.js : Entry point for javascript. Renders the main React component(App) into the root DOM element.    
+
+# HOw react app load and display the components in browser
+![diagram](react_images/image.png)
+
+![alt text](react_images/image_1.png)
+
+# library : 
+  Developers import the libraries at the top and then used its function in components
+
+# framework : 
+  Developers need to follow a specific structure or pattern defined by the framework
+
+# how react provides reusability and composition 
+  - react provides reusability and composition through its component-based-architecture
+  - Reusability : Once you create a component, you can re-use it in different parts of your application or even in multiple projects
+  - composition : composition is creating new and big components by combinig existing small components. Its advantage is, change to one small component will not impact other components.
+
+  # what are state, stateless, stateful and state management terms ?
+
+  1. state : it is a current data of the component
+  2. stateful or state management means, when a user perform some action on UI, then the react application should be able to update and re-render that data or state on the UI.
+
+
+# what are props in jsx 
+  - props(properties) are a way to pass data from parent component to a child component 
+
+  function App(){
+    return (
+      <>
+        <ChildComponent name= "swati" purpose="Interview">
+      </>
+    )
+  }
+  
+  function ChildComponent(props){
+    return <div>{props.name}, {props.purpose}</div>
+  }
+
+  o/p: swati, Interview
+
+
+### chapter Components - functional/class
+
+  # React components : 
+  - react component is a reusable building block for creating user interfaces.
+
+  elements : 
+    1. import the react library
+    2. define a functional component
+    3. return JSX to describe the component's UI
+    4. export the component to make it available for use in other files
+
+# what are types of react components? what are functional components ?
+
+Types : 
+  1. Functional Components 
+    - functional components are declared as a javascript function
+    - they are stateless component, but with the help of hooks they can now manage state also
+
+  2. Class Components 
+
+
+# How do you pass data between functional components in  react 
+  - Using props : props is a way to pass data between parent component to child component
+
+
+# what is prop drilling 
+  - prop drilling is the process of passing down props through multiple layers of components.
+
+# why to avoid prop drilling? In how many ways can avoid prop drilling?
+  why to avoid prop drilling 
+    - 1. Maintenance : prop drilling can make code harder to maintain as changes in data flow require updates across multiple components.
+    - 2. Complexity : It increases code complexity and reduces code readability
+    - 3. Debugging : Debugging becomes challenging when props need to be traced through numerous components.
+
+    # 5 ways to avoid prop drilling
+      1. Using context API
+      2. Using Redux
+      3. Using Component Composition
+      4. Using Callback functions
+      5. Using Custom hooks
+
+# What are class components in react 
+  - class components are defined using Javascript classes
+  - They are stateful components by using the lifecycle methods 
+  - the render method in a class component is responsible for rendering JSX.    
+
+
+# HOw to pass data between class component in react
+  - this.props can be used in child component to access properties/data passed from parent component 
+
+# role of this keyword in class components 
+  -   this keyword is used to refer to the instance of the class
+
+# difference between functional component and class component  ![alt text](image.png)
+
+| Feature                      | **Class Components**                                 | **Functional Components**                              |
+|-----------------------------|-------------------------------------------------------|--------------------------------------------------------|
+| **Syntax**                  | ES6 classes                                           | JavaScript functions (ES6 arrow or regular functions)  |
+| **State Management**        | Use `this.state` and `this.setState()`                | Use `useState` hook                                    |
+| **Lifecycle Methods**       | Have lifecycle methods like `componentDidMount()`     | Use `useEffect` and other hooks                        |
+| **`this` Keyword**          | Required (e.g., `this.props`, `this.state`)           | Not required                                           |
+| **Hooks Support**           | Not used                                              | Fully supported (`useState`, `useEffect`, etc.)        |
+| **Code Complexity**         | More verbose and complex                              | Cleaner and easier to read                             |
+| **Performance**             | Slightly heavier                                      | Generally lighter and faster                           |
+| **Best Use Case**           | Legacy code or complex state logic with lifecycle     | Most modern React development                          |
+| **Introduced In**           | React since early versions                            | Became powerful with React 16.8 (Hooks)                |
+| **Boilerplate Code**        | More (constructor, binding methods, etc.)             | Less (concise and functional)                          |
+
+
+## Chapter Router 
+
+# What is routing and router in react 
+  **Routing** : Routing allows you to create a single page application with navigation, without the need for a full page refresh 
+
+  **REact Router** : react router is a library for handling routing and enables navigation and rendering of different component based on the URL.
+
+# how to implement routing in react 
+  - install router 
+  cmd : npm install react-router-dom 
+  - create navigation 
+  - create routes
+
+# What are the roles of <Routes> & <Route> component in react routing 
+  - The <Routes> component is used as the root container for declaring your collection of routes 
+  - The <Route> component is used to define a route and specify the component that should render when the route matches.
+
+ # WHat are Route parameters in react routing ?
+ -  Route parameters in React Router are a way to pass dynamic values(data) to the component as part of the URL path 
+
+ Ex. <Route path="/users/:userId" component={UserProfile}>
+ <!-- userId is the route parameter -->
+
+# role of switch component in react routing 
+  - Switch component ensures that only the first matching <Route> is rendered and rest are ignored.
+    ex. switch is commonly used to handle 404 or "not found" routes.
+
+  Ex. import {Switch, Route} from 'react-router-dom';
+
+  <Switch>
+    <Route path="/users" element={<UserList/>}>
+    <Route path="/users/:id" element={<UserList/>}>
+  </Switch>
+
+# role of exact prop in react routing 
+  - exact prop is used with the <Route> component to match exactly to provided path.
+
+
+## Chapter : Hooks- useState/useEffect
+
+# what are react hooks? what are the top react hooks?
+  - React hooks are inbuilt functions provided by react that allow functional components to use state and lifecycle features.
+  - Before hooks, class components lifecycle methods were used to maintain state in React applications. 
+  - to use react hook first we have to import it from react library
+
+  1. useState : state
+  2. useEffect : side effect 
+  3. useContext : Context
+  4. useReducer : Complex state
+  5. useCallback : Memoization
+  6. useMemo : Performance
+  7. useRef : refs
+  8. useLayoutEffect : Synchronous side effects 
+
+
+#  
