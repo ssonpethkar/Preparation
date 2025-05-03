@@ -739,7 +739,6 @@ Angular -
 
 # Key features of react
   - 1. virtual DOM : React utilize a virtual representation of the DOM, allowing efficient updates by minimizing direct manipulation of the actual DOM, resulting 
-
   - 2. Component based architecture
   - 3. Reusability and composition 
   - 4. JSX( Javascript XML)
@@ -897,7 +896,7 @@ Types :
 # role of this keyword in class components 
   -   this keyword is used to refer to the instance of the class
 
-# difference between functional component and class component  ![alt text](image.png)
+# difference between functional component and class component  ![alt text](react_images/image_2.png)
 
 | Feature                      | **Class Components**                                 | **Functional Components**                              |
 |-----------------------------|-------------------------------------------------------|--------------------------------------------------------|
@@ -968,4 +967,314 @@ Types :
   8. useLayoutEffect : Synchronous side effects 
 
 
-#  
+#  what is the role of useState() hook and how it works
+  - The useState hook enables the functional components to manage state. 
+  - useState() working: useState() function accept the initial state value as the parameter and returns an array with two elements:
+    1. The first element is the current state value(count in this code)
+    2. second element is the function that is used to update the state(setCount in this code)
+
+  - The concept of assign array elements to individual variables is called array destructuring.
+
+  <!-- State is the current state value -->
+  <!-- setState is a function that used to update the state -->
+  const [state, setState] = useState(initialValue);
+
+
+# role of useEffect(). HOw it works and what is its use
+  - the useEffect hook in react is used to perform side effects in functional components. 
+
+  - For ex. Data fetching from API, subscriptions or any other operation that needs to be performed after the component has been rendered. 
+
+  - 1. useEffect() is called after the component renders. Example, side effects
+
+  - 2. useEffect() function will accept ttwo parameter: (Effect function, dependency array).
+
+
+# what is dependency array in useEffect() hook ?
+  Dependencies arrays act as triggers for useEffect to rerun, meaning if any of dependencies value change, the code inside useEffect() will be executed again.
+
+
+# empty array[] in useEffect()
+  - an empty array[] indicates that the effect function should only `run once`.
+
+
+
+## Chapter : Hooks- useContext/useReducer
+
+# role of useContext hook :
+  - useContext in react provides a way to pass data from parent to child component without using props
+
+
+# what is createContext() method? What are provider and consumer properties?
+  - createContext() function return an object with provider and consumer properties
+  - The provider property is responsible for providing the context value to all its child components.
+  - useContext() method or consumer property can be used to consume the context value in child component.
+
+# when to use useContext() hook instead of props in real application
+  - Use useContext instead of props when you want to avoid prop drilling and access context values directly within deeply nested components.
+![alt text](react_images/image-1.png)
+
+
+### Chapter : Components lifecycle methods - 1
+
+# What are components life cycle phases 
+  1. Mounting phase ( Component creation started) 
+    - This phase occurs when an instance of a component is being created and inserted into the DOM
+
+  2. Updating phase (Component updates)
+    - This phase occurs when a component is being rerendered as a result of changes to either its props or state
+
+  3. Unmounting phase( Removal from the DOM)
+    - This phase occurs when a commponent is being removed from the DOM.
+
+  ![alt text](react_images/image-2.png)
+
+
+# What are component life cycle methods?
+  - Component lifecycle methods are special methods that get called at various stages of a component life 
+
+  ![alt text](react_images/image-3.png)
+
+# What are constructors in class component? When to use them
+  - Constructor is a special method that os called when an instance of the class in created
+  - Constructor is used for initializing the components state or performing any setup that is needed before the component is rendered.
+
+  ![alt text](react_images/image-4.png)
+
+# role of super keyword in constructor
+  - Super keyword is used in the constructor of a class component to call the constructor of the parent class
+  - This is necessary to ensure that the initialization logic of the parent class is executed.
+
+
+  # role of render() method in component life cycle 
+  ![alt text](react_images/image-5.png)
+  ![alt text](react_images/image-6.png)
+
+  - Render() method returns the react elements that will be rendered to the DOM
+
+# HOw the state can be maintained in a class component? 
+  ![alt text](react_images/image-7.png)
+  - Two step to process to maintain state 
+    1. this.setState() method is used to update the state
+    2. this.state property is used to render the update state in DOM.
+
+# role of componentDidMount() method in component life cycle 
+  ![alt text](react_images/image-8.png)
+  - componentDidMount() lifecycle method in react is the part of mounting phase and is `called after a component has been rendered` to the DOM.
+  - Mostly used for side effects. for ex, external data fetching or setting up subscriptions.
+
+# Chapter : Controlled & Uncontrolled components 
+
+# what are controlled components in react 
+  - A controlled components is a component whose form elements(like input fields or checkboxes) are `controlled by the state` of the application.
+  ![alt text](react_images/image-9.png)
+
+# what are diffences between controlled and uncontrolled components 
+![alt text](react_images/image-10.png)
+
+# characteristics of controlled components 
+1. state control : 
+  THe value of the form element is stored in the components state.
+
+2. event handling: 
+  Changes to the form element trigger an event(eg. onChange for input fields)
+
+3. state update: 
+  The event handler updates the components state with the new value of the form element.
+
+4. Re-rendering : 
+  The components re-renders with the updated state, and the form element reflects the new  value.
+
+# advantages of using controlled components in react forms
+  - 1. In controlled components, form elements have their values managed by React state, ensuring a single source of truth 
+
+  - 2. This approach facilitates predictable and synchronized updates, making it easier to implement features such as form validation and dynamic rendering and seamless integration with React's lifecycle methods
+
+  - 3. Controlled components offer better control and maintainability compared to uncontrolled components, making them the best practice for handling forms in react applications
+
+# How to handle forms in react 
+  - The preffered and recommended approach for handling forms in react is by `using controlled components`.
+
+# How can you handle multiple input fields in a controlled form 
+  - Maintain separate state variables for each input field and update them individually using the `onChange event`
+
+    
+# how do yuou handle form validations in a controlled components 
+  - by using conditional rendering based on the state and validate input values before updating the state.
+
+
+# In what scenarios might using uncontrolled components be advantageous
+  - Uncontrolled components can be beneficial when integrating with non-react libraries, or when dealing with forms where controlled components are not possible
+
+
+ ## chapter : code splitting 
+
+# code splitting in react : ( imp for performance point of you)
+- code splitting is a technique to split the javascript bundle into smaller chunks, which are loaded on demand
+
+
+# how to implement code splitting 
+
+  1. use React.lazy() to lazily import components
+  2. wrap components with Suspense to handle loading 
+  3. Configure your build tool(eg. Webpack) for dynamic imports
+
+
+# what is the role of lazy and suspense methods in react 
+  - React.lazy is a function that allows you to load a component lazily 
+  - it enables code splittint by allowing you to import a component asynchronously/dynamically, meaning component is loaded when needed only 
+  - The suspense component is used to display a fallback UI while the lazily loaded component is being fetched 
+
+
+# pros and cons of code splitting 
+  # pros ![alt text](react_images/image-11.png)
+    - faster initial load time 
+    - optimized bandwidth usage 
+    - improved caching 
+    - parallel loading 
+    - easier maintenance 
+
+  # cons ![alt text](react_images/image-12.png)
+    - complexity 
+    - tooling dependencies 
+    - potential for runtime errors
+    - increase number of requests 
+    - learning curve 
+
+
+# role of import() function in code splitting 
+    - The import() function returns a promise that allow dynamic loading of modules 
+
+
+# puspose of fallback prop in suspense 
+  - The fallback prop provides a loading indicator or UI while the dynamically imported component is being loaded 
+
+
+# Can you dynamically load CSS files using code splitting in react
+  - yes, using dynamic import() for CSS files allows you to load styles on-demand along with the corresponding components
+
+# How do you inspect and analyze the generated chunks in a react application
+  - use tools like Webpack Bundle analyzer to analyze the size and composition of chunks
+
+
+## Chapter : others 
+
+# HIgher order component 
+  - A higher order component is a component which takes another component as a argument and adds extra features to another component 
+  - HOC can be used for providing logging functionality to all the components in a reusable way .
+
+# 5 ways to style react components 
+  - inline styles 
+  - CSS stylesheets 
+  - CSS modules 
+  - global stylesheets 
+  - CSS frameworks 
+
+
+# differnce between react and react native 
+![alt text](react_images/image-13.png)
+
+
+# graphQL :( developed by facebook )
+  - GraphQL is a query language for APIs(Application programming interfaces) and a runtime for executing those queries with your existing data 
+  - graphQL and react are often used together. React components can use graphQL queries to fetch the data required for rendering 
+
+# what are the 3 top ways to achieve state management? When to use what in react ? 
+  - useState hook 
+  - context API
+  - Redux
+  ![alt text](react_images/image-14.png)
+
+
+# how can you implement authentication in a react application 
+![alt text](react_images/image-15.png)
+
+
+# use of react profiler
+  - react profiler is a set of tools in react that allows developers to profile(analyze) the performance of a react application 
+![alt text](react_images/image-16.png)
+
+
+
+## differnce between fetch and axios for api calls in react 
+![alt text](react_images/image-17.png)
+
+# popular testing libraries for react
+  - jest 
+  - react testing library
+  - Enzyme
+  - cypress
+
+# How can you optimize performance in a react application 
+  - 1. Memoization with useMemo and useCallback
+  - 2. Optimizing renders with React.Fragment
+  - 3. Lazy loading with React.lazy
+  - 4. Code Splitting 
+  - 5. Optimizing react_images/images and assets
+  ![alt text](react_images/image-18.png)
+
+# explain reactive programming with example 
+  - Reactive programming is a programming paradigm that focuses on reacting to changes and events in a declarative and asynchronous manner
+  - Declarative means a programming style where you write the code for what you want to achieve, rather that specifying step-by-step how to achive it. 
+  for ex., jSX in react has declarative syntax
+  - Asynchronously means an action that does not block other actions 
+
+# in  how many ways can we implement Reactive programming
+![alt text](react_images/image-19.png)
+
+# HOw to pass data from child component to parent component in react
+  ![alt text](react_images/image-20.png)
+  - Parent provides a callback function to child and then child component can then invoke this callback to pass data back to the parent.
+
+## Chapter : Redux 
+# role of redux 
+![alt text](react_images/image-21.png)
+  - redux is a open source javascript library used for state management 
+  - Redux provides a centralized store that holds the entire state of an application and allows components to access and update the state in a predictable manner
+
+# what is the flow of data in react while using redux?
+  ![alt text](react_images/image-22.png)
+
+
+# Role of store in react redux ?
+![alt text](react_images/image-23.png)
+  - Redux store enables the application to update state using the defined reducer
+  - Redux store is a centralized place for holding the store of all the components in the application
+
+# role of reduxer in redux 
+  - ![alt text](react_images/image-24.png)
+  - A reduxer is a function that makes the previous state and an action as arguments and returns the new state of the application
+
+
+#  core principles of redux
+  -![alt text](react_images/image-25.png)
+  ![alt text](react_images/image-26.png)
+
+# What are the differnce between local component state and redux state 
+  - ![alt text](react_images/image-27.png)
+
+# What are challenges or dsadvantages while using redux in react ?
+  - Boilerplate code 
+  - learning curve 
+  - verbosity and complexity 
+  - Overhead for small projects 
+  - global state for local components 
+  - Integration with non-react libraries 
+  ![alt text](react_images/image-28.png)
+
+# What is provider component? How components getting the state from redux store ?
+![alt text](react_images/image-29.png)
+  - Provider component of react-redux will make the `redux store available` to all connected components.
+
+# role of connect funciton in react-redux
+![alt text](react_images/image-30.png)
+  - The connect function is used to make the connection between a react component and the redux store 
+
+# Explain the concept of middleware in react-redux 
+![alt text](react_images/image-31.png)
+  - Middleware provides a mechanism to `add extra functionality` to the redux store 
+  - Middleware can intercept actions, modify them, or execute additional logic in actions before they reach the reducers.
+
+
+## Roadmap of react 
+REACT tools including React.js, Webpack, Enzyme, Redux, and Flux
