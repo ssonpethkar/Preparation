@@ -158,6 +158,10 @@
     - React router is a library for handling routing and enables navigation and rendering of different component based on the URL.
 
 #  What is node module in React js
+    - Node modules is a folder that stores all dependencies(libraries and packages) your react projects need to run
+
+
+
 #  What is the default localhost server port in react js.
 | Tool               | Default Port               |
 | ------------------ | -------------------------- |
@@ -241,4 +245,35 @@ On Windows (CMD):
 
 
 #  What is context api in React js
+
+
 #  What is super, constructor, render function in React js
+`constructor`: 
+    - a special method in class components. Its called once when the component is created.
+    - its used for initialize state and bind methods 
+
+`super(props)`; 
+    - super() call the constructor of the parent class(React.component).
+    - In class components, you must call super(props) before using this.
+    - without it this.props and this.state will not be set up correctly. 
+
+`render`: 
+    - render() is required method in every class component. 
+    - its tell react what to display on the screen
+
+# what is react query 
+    - React query is  a powerful data-fetching and state management library for react apps 
+    - It helps you to fetch , cache, sync, and updates server data easily - like API calls to REST , graphQL    
+    - it is replacement for manually using useEffect + useState+ Axios/fetch for data fetching
+
+# what is react fibre 
+    - React fibre is a reconcillation algorithm and re-rendering engine introduced in react 16 to improve rendering performance and enable advanced feature like concurrent rendering, suspense, error bountries.
+
+    ***why react fibre was introduced 
+    - the old reconcillation algorithm (pre-react 16) was `synchronous` and `recursive`, meaning large component trees could block the main thread and make the UI unresponsive
+
+
+# 1.Concurrent rendering 
+# 2. Time Slicing
+# 3. Suspense and lazy
+# 4. Error boundries
