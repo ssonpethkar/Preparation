@@ -260,6 +260,20 @@
 # what is reconcillation in react ?
   - Reconcillation is the process react uses to update the DOM efficiently when a components state or props change.
 
+# what are react hooks? what are the top react hooks?
+  - React hooks are inbuilt functions provided by react that allow functional components to use state and lifecycle features.
+  - Before hooks, class components lifecycle methods were used to maintain state in React applications. 
+  - to use react hook first we have to import it from react library
+
+  1. useState : state
+  2. useEffect : side effect 
+  3. useContext : Context
+  4. useReducer : Complex state
+  5. useCallback : Memoization
+  6. useMemo : Performance
+  7. useRef : refs
+  8. useLayoutEffect : Synchronous side effects 
+  
 # what is react fibre 
   - react fibre is a reconcillation algorithm and rerendering engine introduced in React 16 to improve rendering performance and enable advanced features like concurrent rendering, suspence , errorboundries. 
 
