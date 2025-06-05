@@ -1279,3 +1279,116 @@ Types :
 REACT tools including React.js, Webpack, Enzyme, Redux, and Flux
 
 
+
+---
+
+## 🔹 What is `useEffect`?
+
+`useEffect` is a **React Hook** that lets you run **side effects** in function components — like:
+
+* Data fetching
+* Subscribing to events
+* Manipulating the DOM
+* Timers
+
+It’s similar to `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` in class components — but unified in a single API.
+
+---
+
+## 🔹 Basic Syntax
+
+```jsx
+useEffect(() => {
+  // side-effect logic here
+  return () => {
+    // cleanup logic (optional)
+  };
+}, [dependencies]);
+```
+
+---
+
+## 🔹 Behavior Explained
+
+| Dependency Array  | Behavior                                                      |
+| ----------------- | ------------------------------------------------------------- |
+| `[]` (empty)      | Runs **once** after first render (componentDidMount)          |
+| `[a, b]`          | Runs **whenever `a` or `b` change** (componentDidUpdate)      |
+| *(no array)*      | Runs **after every render**                                   |
+| `return () => {}` | Runs cleanup **before unmount** or **before next effect run** |
+
+---
+
+## 🔹 Examples
+
+### ✅ Example 1: Run Once (on Mount)
+
+```jsx
+useEffect(() => {
+  console.log('Component mounted');
+}, []);
+```
+
+### ✅ Example 2: Run on Specific Value Change
+
+```jsx
+useEffect(() => {
+  console.log('Count changed:', count);
+}, [count]);
+```
+
+### ✅ Example 3: With Cleanup (like event listeners or intervals)
+
+```jsx
+useEffect(() => {
+  const interval = setInterval(() => {
+    console.log('Tick');
+  }, 1000);
+
+  return () => {
+    clearInterval(interval); // Cleanup on unmount or re-run
+  };
+}, []);
+```
+
+---
+
+## 🔹 Real Use Case: Fetch Data from API
+
+```jsx
+import { useEffect, useState } from 'react';
+
+function Users() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(res => res.json())
+      .then(data => setUsers(data));
+  }, []); // Empty array = fetch only once
+
+  return (
+    <ul>
+      {users.map(user => <li key={user.id}>{user.name}</li>)}
+    </ul>
+  );
+}
+```
+
+---
+
+## 🔹 In React Native?
+
+It works **exactly the same way** in React Native — the only difference is that the side effects often involve native APIs (like camera, location, etc.) instead of browser APIs.
+
+---
+
+## ❗ Common Mistakes
+
+* Forgetting the dependency array: effect runs **on every render**.
+* Incorrect dependencies: stale values or bugs.
+* Not cleaning up subscriptions or intervals → memory leaks.
+
+---
+
+Let me know if you want to dive into **custom hooks**, `useLayoutEffect`, or a performance example!

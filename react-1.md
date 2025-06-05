@@ -57,7 +57,7 @@ const App = () => {
 ---
 
 ### **4. What is JSX?**
-
+- JSX stands for javascript XML
 **JSX (JavaScript XML)** is a syntax extension that allows writing HTML-like code inside JavaScript.
 
 **Example:**

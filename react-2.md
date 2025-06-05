@@ -241,6 +241,15 @@
   - 
 
 # 28. What is suspense in React ?
+  - React.Suspense is a component used to handle the loading state of components that are loaded asynchronously(eg. via React.lazy, data fetching with framework like relay or other concurrent features)
+  - Suspense wraps this lazy component and shows the fallback UI (like a loading spinner) until the component finishes loading.
+
+  # Why use Suspense?
+  - Improves performance by loading components only when needed.
+  - Better user experience with graceful loading indicators.
+  - Works with data fetching and streaming in newer versions of React (e.g., React Server Components, Relay).
+
+ 
 # 29. What are custom hooks ?
   - custom hooks is a javascript function that starts with use and allows you to reuse  `stateful` logic between components
 
@@ -251,27 +260,258 @@
 # what is reconcillation in react ?
   - Reconcillation is the process react uses to update the DOM efficiently when a components state or props change.
 
+# what is react fibre 
+  - react fibre is a reconcillation algorithm and rerendering engine introduced in React 16 to improve rendering performance and enable advanced features like concurrent rendering, suspence , errorboundries. 
+
+  * ✅ Why React Fiber Was Introduced
+    - The old reconciliation algorithm (pre-React 16) was `synchronous` and `recursive`, meaning large component trees could block the main thread and make the UI unresponsive.
+
+  * React Fiber solves this by:
+    - Making the rendering process interruptible  
+    - Breaking down work into units
+    - Prioritizing updates
+    - Supporting pausing, resuming, or canceling work 
+
+  * 📦 Fiber Enables These Key Features
+
+| Feature                  | Description                                                             |
+| ------------------------ | ----------------------------------------------------------------------- |
+| **Concurrent Rendering** | Rendering is no longer blocking; React can split rendering into chunks. |
+| **Suspense & Lazy**      | Pause rendering until a component or data is ready.                     |
+| **Time Slicing**         | Break large renders into smaller units for responsiveness.              |
+| **Error Boundaries**     | Catch and recover from component errors without crashing the whole app. |
+
+**Summary**
+| Feature        | Description                                                      |
+| -------------- | ---------------------------------------------------------------- |
+| Fiber Engine   | Internal engine allowing asynchronous, prioritized rendering     |
+| Enables        | Concurrent rendering, Suspense, lazy loading, responsive updates |
+| Benefits       | Better performance, smoother UX, fewer UI freezes                |
+| You use it via | React features like `useTransition`, `Suspense`, etc.            |
+
+    
 # 30. What is useReducer hook ?
+  - useReducer is same as useState. its a alternative. 
+  - it is used for complex state logic
+
+  ```jsx
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "increment": return { count: state.count + 1 };
+      case "decrement": return { count: state.count - 1 };
+      default: return state;
+    }
+  };
+
+  function Counter() {
+    const [state, dispatch] = useReducer(reducer, { count: 0 });
+
+    return (
+      <>
+        <p>{state.count}</p>
+        <button onClick={() => dispatch({ type: "increment" })}>+</button>
+        <button onClick={() => dispatch({ type: "decrement" })}>-</button>
+      </>
+    );
+  }
+``
+
+
 # 31. What are Portals in react ?
+- Portals let you render children into a DOM node outside the parent component.
+```jsx
+ReactDOM.createPortal(child, container)
+
+function Modal({ children }) {
+  return ReactDOM.createPortal(
+    <div className="modal">{children}</div>,
+    document.getElementById("modal-root")
+  );
+}
+```
+
 # 32. What is context in react ?
+  - react context allows to passed data deeply without prop drilling 
+
 # 33. Practical question: Give an example of context api usage ?
+```jsx
+const ThemeContext = React.createContext();
+
+function App() {
+  return (
+    <ThemeContext.Provider value="dark">
+      <Toolbar />
+    </ThemeContext.Provider>
+  );
+}
+
+function Toolbar() {
+  return <ThemeButton />;
+}
+
+function ThemeButton() {
+  const theme = useContext(ThemeContext);
+  return <button className={theme}>Click Me</button>;
+}
+
+```
+
 # 34. What is the purpose of callback function as an argument of setState()?
+- in class components, its ensures state updates are applied before calling the function 
+
 # 35. Practical question: create a custom hook for increment/decrement counter ?
 # 36. Which lifecycle hooks in class component are replaced with useEffect in functional components ?
+  - componentDidMount
+  - componentDidUpdate
+  - componentWillUnmount
+
 # 37. What is Strict mode in react ?
+  - a tool to detect potential problems in the app
+
 # 38. What are the different ways to pass data from child component to parent component in react ?
+  - callback functions
+  - useRefs 
+  - Context (not direct, but shared)
+  - Global state( Redux, Zustand)
+
 # 39. Practical question: How to send data from child to parent using callback functions ?
+```jsx 
+function Parent() {
+  const handleData = (data) => console.log(data);
+  return <Child sendData={handleData} />;
+}
+
+function Child({ sendData }) {
+  return <button onClick={() => sendData("Hello Parent")}>Send</button>;
+}
+
+```
+
 # 40. Practical question: How to send the data from child component to parent using useRef ?
+```jsx
+function Parent() {
+  const childRef = useRef();
+
+  const getData = () => {
+    console.log(childRef.current.value);
+  };
+
+  return (
+    <>
+      <Child ref={childRef} />
+      <button onClick={getData}>Get Data</button>
+    </>
+  );
+}
+
+const Child = forwardRef((props, ref) => (
+  <input ref={ref} placeholder="Type here" />
+));
+
+```
 # 41. How do you optimize your react application ?
+  - code splitting(React.lazy, Suspense)
+  - Memoization( React.memo, useMemo, useCallback)
+  - Virtualization(eg. react-window)
+  - Avoid unnecessary renders
+  - Lazy loading images/components 
+
 # 42. How would you consume a RESTful JSON API in reactjs?
+```jsx
+useEffect(() => {
+  fetch("https://api.example.com/data")
+    .then(res => res.json())
+    .then(data => setData(data));
+}, []);
+```
 # 43. different design patterns used in react?
+- container presenter 
+- Higher order components (HOC)
+- Render props 
+- Hooks
+- Compound components 
+- Provider pattern 
+
 # 44. context api vs redux
+| Feature       | Context API  | Redux                   |
+| ------------- | ------------ | ----------------------- |
+| Simplicity    | Simple       | Complex                 |
+| Boilerplate   | Minimal      | More                    |
+| Async support | Needs custom | Built-in (Thunk, Saga)  |
+| Devtools      | Limited      | Powerful Redux Devtools |
+| Suitable for  | Small apps   | Large-scale apps        |
+
 # 45. prop types in react(How to apply validation on props in react)
+```jsx
+import PropTypes from 'prop-types';
+
+function Button({ label }) {
+  return <button>{label}</button>;
+}
+
+Button.propTypes = {
+  label: PropTypes.string.isRequired
+};
+
+```
 # 46. What are React Mixins ?
+  - Mixin were used in React.createClass for sharing logic, now discouraged in favor of HOC's hooks
+
 # 47. what are the different hooks you have used ?
+  - useEffect
+  - useState
+  - useContext
+  - useMemo
+  - useCallback
+  - useLayoutEffect
+  - useReducer
+  - useRef
+
 # 48. What are render props in react ?
+  - sharing code using a prop whose value is a function 
+
+```jsx
+function DataFetcher({ render }) {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    fetch("/api").then(res => res.json()).then(setData);
+  }, []);
+  return render(data);
+}
+
+<DataFetcher render={data => <div>{data}</div>} />
+```
+
 # 49. What are the different types of exports and imports ?
+  - named export 
+  - default export
+```jsx
+// Named export
+export const a = 10;
+import { a } from './file';
+
+// Default export
+export default MyComponent;
+import MyComponent from './file';
+```
+
 # 50. What are the differences between create element vs clone element in react ?
+  - create elements : create a new element
+  - clone elements : clones and enhances an existing elements 
+
 # 51. When to use useState and useReducer?
+  - useState is used for simple state ( form fields, toggles)
+  - useReducer for complex state logic( multiple state, state transition)
+
 # 52. What are protected routes in react ?
+  - Routes that require authentications 
+```jsx
+<Route
+  path="/dashboard"
+  element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />}
+/>
+```
+
 # 53. What is react-router has context menu
+  - React router doesn't have built in context menus. you can implement a context menu with 
+  right click + custom component + route handling 
