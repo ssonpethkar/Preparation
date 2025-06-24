@@ -1274,3 +1274,134 @@ you can skip values by not declaring them in the destructuring assignment.
 #### Snippest #####
 - https://github.com/anil-sidhu/JavaScript-100-objective-based-questions
 
+
+### array methods
+
+| Method       | Returns             | Mutates? | Common Use              |
+| ------------ | ------------------- | -------- | ----------------------- |
+| `map()`      | New array           | ❌        | Transforming data       |
+| `filter()`   | New array           | ❌        | Filtering data          |
+| `reduce()`   | Single value        | ❌        | Summing, combining data |
+| `forEach()`  | `undefined`         | ❌        | Looping without return  |
+| `find()`     | First matching item | ❌        | Find one item           |
+| `some()`     | `true` / `false`    | ❌        | Check if any match      |
+| `every()`    | `true` / `false`    | ❌        | Check if all match      |
+| `includes()` | `true` / `false`    | ❌        | Check if value exists   |
+| `sort()`     | Sorted array        | ✅        | Sorting                 |
+| `splice()`   | Modified array      | ✅        | Remove/insert items     |
+| `slice()`    | New array (copy)    | ❌        | Copy part of array      |
+| `concat()`   | New array           | ❌        | Merge arrays            |
+| `flat()`     | New array           | ❌        | Flatten nested arrays   |
+| `join()`     | String              | ❌        | Create strings          |
+| `reverse()`  | Reversed array      | ✅        | Reverse order           |
+
+
+Use array methods like:
+- map() to render lists.
+- filter() to remove items dynamically.
+- reduce() to calculate totals in cart apps.
+- flatMap() when working with nested data like categories with products.
+- some() / every() for validations (e.g., checking required form fields).
+
+## javascript events 
+
+# Mouse Events
+| Attribute       | Description              |
+| --------------- | ------------------------ |
+| `onclick`       | Click on element         |
+| `ondblclick`    | Double click             |
+| `onmousedown`   | Mouse button pressed     |
+| `onmouseup`     | Mouse button released    |
+| `onmouseenter`  | Mouse enters the element |
+| `onmouseleave`  | Mouse leaves the element |
+| `onmousemove`   | Mouse moves over element |
+| `onmouseover`   | Mouse moves onto element |
+| `onmouseout`    | Mouse moves off element  |
+| `oncontextmenu` | Right-click on element   |
+
+# Keyboard events 
+
+| Attribute       | Description                        |
+| --------------- | ---------------------------------- |
+| `onkeydown`     | Key pressed down                   |
+| `onkeyup`       | Key released                       |
+| `onkeypress` ⚠️ | (Deprecated) Printable key pressed |
+
+#  Form/Input Events
+
+| Attribute   | Description                            |
+| ----------- | -------------------------------------- |
+| `oninput`   | Input value is modified (live)         |
+| `onchange`  | Value is changed and input loses focus |
+| `onsubmit`  | Form submitted                         |
+| `onreset`   | Form is reset                          |
+| `onfocus`   | Element gains focus                    |
+| `onblur`    | Element loses focus                    |
+| `oninvalid` | Validation fails                       |
+| `onselect`  | Text selected in input                 |
+
+# Window & Document Events
+
+| Attribute        | Description                    |
+| ---------------- | ------------------------------ |
+| `onload`         | Page or resource has loaded    |
+| `onunload`       | Page is unloading (deprecated) |
+| `onbeforeunload` | Warn user before leaving page  |
+| `onresize`       | Window resized                 |
+| `onscroll`       | Element or window scrolled     |
+| `onerror`        | Resource loading error         |
+
+
+# Clipboard Events
+
+| Attribute | Description    |
+| --------- | -------------- |
+| `oncopy`  | Content copied |
+| `oncut`   | Content cut    |
+| `onpaste` | Content pasted |
+
+
+# Drag and Drop Events
+
+| Attribute     | Description              |
+| ------------- | ------------------------ |
+| `ondrag`      | Element is being dragged |
+| `ondragstart` | Dragging has started     |
+| `ondragend`   | Dragging has ended       |
+| `ondragenter` | Drag enters drop target  |
+| `ondragleave` | Drag leaves drop target  |
+| `ondragover`  | Drag over target         |
+| `ondrop`      | Dropped on a target      |
+
+# 📱 Touch Events (Mobile)
+
+| Attribute       | Description                   |
+| --------------- | ----------------------------- |
+| `ontouchstart`  | Finger touches screen         |
+| `ontouchmove`   | Finger moves on screen        |
+| `ontouchend`    | Finger is lifted              |
+| `ontouchcancel` | Touch canceled (interruption) |
+
+
+# media events 
+
+| Attribute        | Description               |
+| ---------------- | ------------------------- |
+| `onplay`         | Media starts playing      |
+| `onpause`        | Media is paused           |
+| `onended`        | Media playback ended      |
+| `ontimeupdate`   | Playback position changed |
+| `onvolumechange` | Volume changed            |
+| `onseeked`       | Seek finished             |
+| `onseeking`      | Seeking started           |
+| `oncanplay`      | Ready to play             |
+| `onwaiting`      | Waiting for data          |
+
+
+| Attribute          | Description                                |
+| ------------------ | ------------------------------------------ |
+| `onwheel`          | Mouse wheel used                           |
+| `onanimationstart` | CSS animation starts                       |
+| `onanimationend`   | CSS animation ends                         |
+| `ontransitionend`  | CSS transition ends                        |
+| `onmessage`        | Message received from another window/frame |
