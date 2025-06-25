@@ -1,0 +1,6 @@
+- agile methodology 
+- aws 
+- SAAS
+- Do you have experience in State Management: Practical experience with at least one client-side state management library? Do you have experience in State Management: Practical experience with at least one client-side state management library?  
+- Do you have experience in server-side state management/data fetching library like SWR, React Query (Tanstack Query), or RTK Query Do you have experience in server-side state management/data fetching library like SWR, React Query (Tanstack Query), or RTK Query  
+- ci/cd pipelines

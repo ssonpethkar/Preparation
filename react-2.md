@@ -529,3 +529,10 @@ import MyComponent from './file';
 # 53. What is react-router has context menu
   - React router doesn't have built in context menus. you can implement a context menu with 
   right click + custom component + route handling 
+
+
+# react query 
+# SWR 
+# RTK query (redux tool kit)
+
+

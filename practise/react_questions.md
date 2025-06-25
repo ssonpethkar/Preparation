@@ -2,7 +2,7 @@
     - React js is a open source javascript library is used to building user interfaces (UI) for single page application 
     - React is developed by facebook
     - React used component based architecture and virtual DOM for faster rendering
-    - It allows to developer to create reusable UI components 
+    - It allows developer to create reusable UI components 
 
 `Features` : 
     - uses virtual DOM
@@ -103,6 +103,16 @@
 
 
 #  What is reducer, action, store in Redux
+`action`:
+    - a plain javascript object describing what happened. It must have a type property and can have additional data in a payload 
+
+`reducer`: 
+    - A pure function that takes the current state and the action, then returns a new state it specifies how the state changes in response to action
+`store`: 
+    - The redux store holds the entire state tree of your application. It allows you to dispatch actions, subscribe to state change , and get the current state.  
+    
+
+
 #  What is middleware in Redux
 #  Explain data flow in Redux
 #  What is Redux-Thunk
