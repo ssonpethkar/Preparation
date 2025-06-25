@@ -535,4 +535,31 @@ import MyComponent from './file';
 # SWR 
 # RTK query (redux tool kit)
 
+## 1. Lifecycle Methods in Class Components 
+
+| **Phase**          | **Method**                          | **When to Use**                                     |
+| ------------------ | ----------------------------------- | --------------------------------------------------- |
+| **Mounting**       | `constructor()`                     | Initialize state, bind methods (rare now)           |
+|                    | `static getDerivedStateFromProps()` | Update state based on props (rare)                  |
+|                    | `render()`                          | Required method – returns JSX                       |
+|                    | `componentDidMount()`               | Fetch data, set up subscriptions or event listeners |
+| **Updating**       | `shouldComponentUpdate()`           | Optimize performance by controlling re-renders      |
+|                    | `getSnapshotBeforeUpdate()`         | Read DOM info before update (e.g., scroll position) |
+|                    | `componentDidUpdate()`              | Act on prop/state changes, re-fetch data            |
+| **Unmounting**     | `componentWillUnmount()`            | Cleanup (cancel timers, remove listeners, etc.)     |
+| **Error Handling** | `componentDidCatch()`               | Catch rendering errors in child components          |
+
+
+2. Lifecycle Equivalents in Functional Components
+
+
+| **Class Method**          | **Functional Equivalent**                                       | **Usage Example**                       |
+| ------------------------- | --------------------------------------------------------------- | --------------------------------------- |
+| `componentDidMount`       | `useEffect(() => { ... }, [])`                                  | Fetch data, start subscriptions         |
+| `componentDidUpdate`      | `useEffect(() => { ... }, [dependencies])`                      | Run logic on specific prop/state change |
+| `componentWillUnmount`    | `useEffect(() => { return () => {...}; }, [])`                  | Cleanup timers, listeners, etc.         |
+| `shouldComponentUpdate`   | Manual memoization: `React.memo`, `useMemo`, `useCallback`      | Performance optimization                |
+| `getSnapshotBeforeUpdate` | Rare: use `useRef()` for snapshotting values                    | Capture previous values                 |
+| `componentDidCatch`       | `ErrorBoundary` must still be a **class component** (as of now) | Error boundaries                        |
+
 
