@@ -347,3 +347,9 @@ These test your **real-world thinking**, debugging skills, and architectural dec
 14. 🛠️ **You want to support offline mode in a React PWA. What tools/libraries do you need?**
 15. 🧪 **How do you test a component that uses `useEffect` to fetch data on mount?**
 
+how to render list of objects in react. how many ways 
+if we got millions of records in list then how to handle it.
+redux configuration in react. how to use it.
+without redux toolkit 
+in redux which hooks are used - useSelector and useDispatch
+how to use react query in react. how to use it with react hooks. how to use it with react context api. how to use it with react hooks. how to use it with react class components. how to use it with react functional components. how to use it with react hooks. how to use it with react context api. how to use it with react class components. how to us it with react functional components. how to use it with react hooks. how to use it with react

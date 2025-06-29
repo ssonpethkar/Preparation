@@ -1,4 +1,5 @@
 What is Ecmascript in Javascript
+    - ECMA script is a standardarized specification for a general purpose scripting language. It serves as the foundation and core language features upon which language 
 ● What is difference between let ,cons and var
     - var : var is global scoped, it can be redeclared and reassigned
     - let : let is function scoped , it can be reassigned only , can't  be redecalred
@@ -203,4 +204,28 @@ What are the truthy values in javascript
 | **Returns**                  | Removed elements as a new array  | A new array with selected items        |
 | **Common Use**               | In-place insert, delete, replace | Copying or extracting part of an array |
 
+
+Javascript 
+DOM 
+Hoisting 
+currying 
+Event Loop / Call Stack / Microtasks / Macrotasks
+event delegation , event bubbling, event capturing
+callback,promise, async/await
+synchrnous asynchronous
+closure
+map, filter, reduce
+var , let, const
+call, apply, bind
+setTimeout, setInterval
+ES6 features
+spread , rest 
+slice, splice 
+array methods, string methods ,Object methods
+==, ===
+IIFE
+higher order function 
+Optional Chaining ?.
+Nullish Coalescing ??
+debouncing , throttling
 
