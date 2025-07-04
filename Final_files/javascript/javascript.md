@@ -1,5 +1,6 @@
 What is Ecmascript in Javascript
-    - ECMA script is a standardarized specification for a general purpose scripting language. It serves as the foundation and core language features upon which language 
+    - ECMA script is a standardarized specification for a general purpose scripting language. It serves as the foundation and core language features upon which language implementations are based. It is a standard for scripting languages that is maintained by Ecma International. It is also known as ECMAScript. It is a standard for scripting languages that is maintained by Ecmascript International. It is a standard for scripting languages that is maintained by Ecma International. 
+
 ● What is difference between let ,cons and var
     - var : var is global scoped, it can be redeclared and reassigned
     - let : let is function scoped , it can be reassigned only , can't  be redecalred

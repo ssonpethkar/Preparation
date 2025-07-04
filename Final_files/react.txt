@@ -184,7 +184,8 @@
 	
 	- useReducer : 
 		- useReducer is alternative of useState 
-		- useReducer is a react hook that allow functional component to managing complex state logic, especially when state updated depends on previous state or multiple actions 4
+		- useReducer is a react hook that allow functional component to managing complex state logic, especially when state updated depends 
+		on previous state or multiple actions 4
 		- useReducer works by using a reducer function to handle state transition
 		- The reducer takes the current state and an action and returns new state
 		- useReducer hooks used when complex state logic and when multiple values are updated together (like form validation, redo/undo, ) 
@@ -192,7 +193,8 @@
 
 	- useEffect : 
 		- useEffect runs asynchronously
-		- useEffect is a react hook that let you perform side effect in functional component - like fetching data , subscribing to the events or updating the DOM.
+		- useEffect is a react hook that let you perform side effect in functional component - like fetching data , subscribing to the events
+		 or updating the DOM.
  		- It is similar to componentDidMount, componentDidUpdate and componentWillUnmount from class component
 		- you pass it a function that runs after render(after DOM paints). It also returns a cleanup functions for unmounting 
 		- There are 3 ways to use useEffects 
@@ -202,7 +204,8 @@
 
 	- useLayoutEffect
 		- useLayoutEffect runs synchronously
-		- useLayoutEffect is a react hook that works like same useEffect but it fires synchronously after all DOM mutations and before browser paints the screen
+		- useLayoutEffect is a react hook that works like same useEffect but it fires synchronously after all DOM mutations and 
+		before browser paints the screen
 		- used for DOM measurements 
 		- when you want to synchronously update layout before the screen paints
 
