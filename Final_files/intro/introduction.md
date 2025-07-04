@@ -1,0 +1,5 @@
+Project 
+
+I am currently working on the MIDAS project, where the tech stack includes React.js for the frontend and Java Spring Boot for the backend. My role in the project is focused on frontend development
+ I have to work with backend team to integrate the frontend and backend. Basically Midas is a reverse logistic project. In that project I have worked from scratch and also developed configurable flow from frontend to use one project to many clients . In this project usually we perform activity on devices like mobile and tablets. evaluate the valuation of devices using functional grading and cosmatic grading. also we perform erasure of data from devices.  I have also integrated dashboard for client visualization. and integrated technologies like kafka, mqtt and socket for real time data to show on UI. Also on the grade calculation we decide its value based on the grade. I have also worked on the UI/UX part of the project. In that project im responsible to create reusable components, responsive web applications and  performance optimization using hooks and lazy loading. 
+
