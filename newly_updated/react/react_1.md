@@ -167,3 +167,58 @@
 # 54. What is react query, react profiler
 # 55. lifting state up 
 # RXJs
+
+🟢 Basic ReactJS Interview Questions
+What is React?
+What are components in React?
+Difference between functional and class components?
+What is JSX?
+How does the Virtual DOM work?
+What is the role of keys in lists?
+What are props in React?
+What is state in React?
+Explain the React component lifecycle (for class components).
+What is the difference between controlled and uncontrolled components?
+
+🔵 React Hooks Interview Questions
+What are React Hooks?
+useState vs useRef — differences?
+Explain useEffect and its dependency array.
+How to clean up side effects in useEffect?
+How does useCallback prevent unnecessary renders?
+What is useMemo and when to use it?
+What is the difference between useLayoutEffect and useEffect?
+How to create custom hooks in React?
+How does useReducer work?
+Explain useRef and its use cases.
+
+🟠 Context API Interview Questions
+What is React Context API?
+When should you use Context instead of props?
+How to pass functions using Context API?
+Compare Redux and Context API.
+How to optimize Context to avoid unnecessary re-renders?
+
+🔴 Redux Interview Questions
+What is Redux and why is it used?
+What are the core principles of Redux?
+What is a reducer in Redux?
+Explain actions and action creators.
+What is the role of the store in Redux?
+Difference between Redux Thunk and Redux Saga?
+How does middleware work in Redux?
+What is the role of combineReducers()?
+How do you connect React to Redux using hooks?
+How to use Redux Toolkit?
+
+🟣 Advanced React Questions
+What is React Fiber architecture?
+What is reconciliation in React?
+Explain concurrent mode in React.
+What is the difference between lazy loading and code splitting?
+How does Suspense and React.lazy work?
+Explain error boundaries in React.
+What are portals in React and when to use them?
+What is prop drilling and how do you avoid it?
+How do you handle performance optimization in large React apps?
+Explain the difference between SSR, CSR, and ISR (Next.js context).
