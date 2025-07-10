@@ -19,6 +19,7 @@
 3. 🔥 What is a closure in JavaScript?
     - Closure is a javascript function that the inner function still get accessed of outer function varible if the outer function has finished excuting. 
     - Closure is a javascript function that remembers variables from its outer score, even after that outer function has finished executing.
+    - closure is a javascript function that can accessed outer function variable in their inner function if the outer function has finished executing.
 
 4. 🔥 What is the difference between `var`, `let`, and `const`?
     var : 
