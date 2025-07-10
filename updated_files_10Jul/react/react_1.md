@@ -378,6 +378,210 @@ State Reducer Pattern
 	Render Props is a pattern in React where a component uses a function as a prop to determine what to render
 	This allows code reuse and dynamic rendering logic, especially for sharing stateful logic between components — similar to what you might use hooks for today.
 
+# What is forwardRef?
+	- React.forwardRef is a React API that allows you to pass a ref from a parent component to a child component, 
+	even if that child is a functional component.
+	- Normally, refs don’t work with functional components unless you explicitly forward them.
+
+
+# What is Concurrent Rendering in React?
+	- Concurrent Rendering is a feature introduced in React 18 that allows React to interrupt, pause, and continue rendering work without blocking the main thread.
+	- Think of it as React multitasking — it can stop rendering one part of the UI to prioritize more important updates, like user input or animations.
+
+
+# What is Batching in React?
+	- Batching is the process where multiple state updates are grouped together into a single re-render for performance optimization.
+	- Why It Matters:
+		- Prevents unnecessary multiple renders
+
+
+1. What are React Hooks, and how do they improve functional components?
+Answer:
+React Hooks allow functional components to use state and lifecycle features without needing class components. The most common hooks are:
+
+useState: Manages state within functional components.
+useEffect: Handles side effects like fetching data or subscribing to events.
+useContext: Provides access to context values without prop drilling.
+useReducer: Alternative to useState for complex state logic.
+Hooks improve reusability, reduce boilerplate code, and make components easier to test and maintain.
+
+===========================================================================================
+2. How does Redux work, and when would you use it over Context API?
+Answer:
+Redux is a state management library that maintains a global state for an application. It follows a unidirectional data flow:
+
+Actions: Describe state changes.
+Reducers: Define how the state should change.
+Store: Holds the global state.
+Dispatch: Triggers state updates.
+
+Use Redux when:
+
+The app has a complex state that multiple components need access to.
+Predictable state transitions are necessary.
+Debugging and logging via Redux DevTools is needed.
+Context API is better suited for small-scale apps with simple state management needs.
+===========================================================================================
+3. What is the difference between useMemo and useCallback?
+Answer:
+
+useMemo: Memoizes the result of a function to avoid expensive recalculations.
+useCallback: Memoizes the function itself to prevent unnecessary re-creation.
+Example:
+
+
+const memoizedValue = useMemo(() => expensiveCalculation(value), [value]);  
+const memoizedFunction = useCallback(() => handleClick(), []);  
+Use useMemo for performance optimization when recalculating values, and useCallback to prevent unnecessary function re-renders in child components.
+===========================================================================================
+4. How do you ensure a React application is responsive?
+Answer:
+
+Use CSS Grid and Flexbox for flexible layouts.
+Implement media queries for different screen sizes.
+Utilize relative units like %, em, and rem instead of fixed pixels.
+Use React libraries like Material-UI or Tailwind CSS for responsive components.
+Implement mobile-first design for better UX on smaller screens.
+
+===========================================================================================
+API Integration (RESTful APIs, Backend Collaboration)
+5. How do you handle API integration in React?
+Answer:
+
+Use fetch or axios for API calls.
+Store API data in the component’s state using useState.
+Fetch data inside useEffect to avoid unnecessary requests.
+Implement error handling and loading states.
+Example:
+
+useEffect(() => {
+  axios.get('https://api.example.com/data')
+    .then(response => setData(response.data))
+    .catch(error => console.error(error));
+}, []);
+
+===========================================================================================
+6. How do you handle API failures in a React application?
+Answer:
+
+Implement try-catch blocks for error handling.
+Use retry mechanisms for transient failures.
+Display error messages to users gracefully.
+Implement fallback UI using ErrorBoundary.
+Use status codes (like 401, 403, 500) to determine the right response.
+
+
+===========================================================================================
+Cloud Infrastructure (AWS: Lambda, API Gateway, S3)
+7. What is AWS Lambda, and how does it work?
+Answer:
+AWS Lambda is a serverless compute service that runs code without provisioning servers. It:
+
+Executes code in response to triggers (e.g., API Gateway, S3 events).
+Scales automatically based on demand.
+Charges only for the execution time used.
+Use Lambda for backend tasks, API processing, and event-driven architecture.
+===========================================================================================
+8. How do you deploy a React application to AWS S3?
+Answer:
+
+Build the React app using npm run build.
+Upload the build folder to an S3 bucket.
+Configure the bucket as a static website.
+Enable CORS settings if needed.
+Use CloudFront for CDN caching and faster delivery.
+
+
+===========================================================================================
+Performance & Scalability
+9. How do you optimize the performance of a React application?
+Answer:
+
+Use lazy loading (React.lazy, Suspense) to reduce initial load time.
+Optimize re-renders using React.memo, useMemo, and useCallback.
+Reduce bundle size with code splitting (React.lazy, import()).
+Implement virtualization (react-window, react-virtualized) for large lists.
+Optimize API calls using caching and debouncing.
+
+===========================================================================================
+10. How would you handle a slow-loading API in a React app?
+Answer:
+
+Show a loading indicator while fetching data.
+Use caching (localStorage, sessionStorage, or state management tools).
+Implement pagination or infinite scrolling.
+Use background fetching to update data asynchronously.
+Optimize API requests by debouncing or throttling.
+
+
+===========================================================================================
+Collaboration & Problem Solving
+11. How do you handle conflicting requirements in a team?
+Answer:
+
+Communicate with stakeholders to clarify requirements.
+Prioritize tasks based on business needs.
+Suggest technical trade-offs and find a balanced solution.
+Document decisions for future reference.
+
+===========================================================================================
+12. How would you debug a React app that isn't rendering correctly?
+Answer:
+
+Check console errors using DevTools.
+Inspect React components using React Developer Tools.
+Verify state updates using console.log or useEffect.
+Test API calls using Postman or the network tab.
+Use debugging tools like Redux DevTools if applicable.
+
+===========================================================================================
+General Expertise
+13. What are CI/CD pipelines, and how do they benefit development?
+Answer:
+CI/CD (Continuous Integration/Continuous Deployment) automates code integration, testing, and deployment. Benefits include:
+
+Faster code releases with automated deployments.
+Reduced bugs via continuous testing.
+Efficient collaboration among developers.
+Tools: GitHub Actions, Jenkins, CircleCI, AWS CodePipeline
+===========================================================================================
+14. What are the best practices for writing clean and maintainable React code?
+Answer:
+
+Use functional components with hooks.
+Follow component-based architecture.
+Keep components small and reusable.
+Use descriptive variable and function names.
+Document complex logic with comments.
+Maintain a consistent folder structure.
+
+===========================================================================================
+Final Technical Question
+15. How would you design a scalable React application?
+Answer:
+
+Follow modular architecture with feature-based directories.
+Use Redux or Context API for state management.
+Implement lazy loading and dynamic imports.
+Optimize performance with memoization and virtualization.
+Ensure server-side rendering (SSR) or static generation if SEO is important.
+
+
+===========================================================================================
+Behavioral Questions
+16. Tell us about a time you solved a complex technical problem.
+Answer: (Provide STAR-based response: Situation, Task, Action, Result)
+
+Situation: Faced a performance issue in a React app due to excessive re-renders.
+Task: Optimize component rendering without breaking functionality.
+Action: Used React.memo, useMemo, and useCallback to minimize unnecessary renders.
+Result: Improved load time by 40% and enhanced user experience.
+
+
+
+
+
+
 # 50. What are the differences between create element vs clone element in react ?
 # 51. When to use useState and useReducer?
 # 52. What are protected routes in react ?

@@ -15,6 +15,15 @@
     - let and const are hoisted but not initialized , leading to temporal dead zone 
     - functions declared using functions are fully hoisted 
 
+# How to Avoid Hoisting Issues in JavaScript
+| Practice                          | Why it helps                    |
+| --------------------------------- | ------------------------------- |
+| Use `let`/`const`                 | Prevents pre-declaration access |
+| Use arrow functions / expressions | Not hoisted                     |
+| Declare functions before use      | Avoids confusion                |
+| Avoid `var`                       | Reduces scope/hoisting issues   |
+| Use `'use strict'`                | Catches silent bugs             |
+
 
 3. 🔥 What is a closure in JavaScript?
     - Closure is a javascript function that the inner function still get accessed of outer function varible if the outer function has finished excuting. 
@@ -23,18 +32,23 @@
 
 4. 🔥 What is the difference between `var`, `let`, and `const`?
     var : 
-        - var is global scoped
+        - var is function scoped
         - variable declaration with var can be redeclared and reassigned 
         - it is hoisted but initialized with undefined
+        - if we use var before declaration it gives undefined
 
     let :
-        - let is function scoped
+        - let is blocked scoped
         - variable declaration with let can be reassigned but can't be redeclared
         - it is hoisted but not initialized ( in temporal dead zone)
+        - if we use let variable  before declaration that time it will throw reference error
+        (ReferenceError: Cannot access 'a' before initialization)
     const :
         - const is blocked scoped
         - variable declaration with const can't be redeclared and reassigned.
         - must be initialized at the time of declaration 
+        - if we use const variable  before declaration that time it will throw reference error
+        (ReferenceError: Cannot access 'a' before initialization)
 
 5. 🔥 What is the event loop in JavaScript?
     - Event loop is a mechanism that handles aynchronous operation like setTimeout , promises etc. 
@@ -490,8 +504,8 @@
                 .catch(error => console.log("PROMISE Rejected :",error))
 
 
-    ***3. aync/await : 
-        - aync/await is syntactic sugar over promises 
+    ***3. async/await : 
+        - async/await is syntactic sugar over promises 
         - it makes asynchonous code look and behave like synchronous code 
         - it helps you to write cleaner and more readable code when working with aynchronous operation like API calls, timers, file operations etc
         - real time example : Instead of waiting callback, you just pause until the delivery arises then continue.
