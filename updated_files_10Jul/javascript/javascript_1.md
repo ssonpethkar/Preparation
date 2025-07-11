@@ -455,9 +455,33 @@ console.log(sum(1)(2)(3))
 # * What is the spread operator and rest operator?
     - spread :
         - used to expand elements from an array or object
+        - Expands elements into a list
+        - In function calls, arrays, objects
+        - "Expands out"
+        - syntax : ...array
+        - ex 
+            const arr1 = [1, 2];
+            const arr2 = [...arr1, 3, 4]; 
+            console.log(arr2); // [1, 2, 3, 4]
 
     - rest : 
         - used to collect remaining elements or arguments into a new array or object
+        - and Collects multiple elements into an array
+        - In function parameters, destructuring
+        - "Gathers in"
+        - ...args
+        - ex 
+            <!-- 1. Rest in Array Destructuring -->
+            const [first, ...rest] = [10, 20, 30, 40];
+            console.log(first); // 10
+            console.log(rest);  // [20, 30, 40]
+
+            <!-- 2. Rest in Function Parameters -->
+            function sum(...nums) {
+              return nums.reduce((a, b) => a + b, 0);
+            }
+            console.log(sum(1, 2, 3)); // 6
+
 
 # * How do you clone an object in JavaScript?
     - there are multiple ways to clone an object depending on whether you need a shallow copy or deep copy
@@ -561,15 +585,42 @@ console.log(sum(1)(2)(3))
         | In event handlers     | The DOM element that triggered the event      |
 
 # * What is the difference between call, apply, and bind?
+    - These three methods allow you to explicitly set the this context of a function and optionally pass arguments.
     call : 
-        - invoke immediately, pass args individually
+        - invoke immediately, pass args individually with specific this 
+        - Ex 
+            person.greet.call(anotherPerson, 30, "New York");
+            // Output: Hi, I'm Bob, 30 years old from New York.
+
     apply : 
-        - invoke immediately , pass arguments as an array 
+        - invoke immediately , pass arguments as an array with this
+        - Ex. 
+            person.greet.apply(anotherPerson, [25, "London"]);
+            // Output: Hi, I'm Bob, 25 years old from London.
+
     bind : 
-        - returns a new function with bound this 
+        - returns a new function with bound this — does not execute immediately.
+        - Ex. 
+            const boundGreet = person.greet.bind(anotherPerson, 40, "Tokyo");
+            boundGreet(); // Output: Hi, I'm Bob, 40 years old from Tokyo.
+
         
     - Use call/apply when you want to invoke immediately with a specific this.
     - Use bind when you want to save a function with a bound this to use later.
+
+    - Ex: 
+        const car = {
+          brand: "Tesla",
+        };
+        
+        function describeCar(speed) {
+          console.log(`${this.brand} goes ${speed} km/h`);
+        }
+        
+        describeCar.call(car, 150);  // Tesla goes 150 km/h
+        describeCar.apply(car, [180]); // Tesla goes 180 km/h
+        const boundCar = describeCar.bind(car, 200);
+        boundCar(); // Tesla goes 200 km/h
 
 
 # * How do you handle errors in JavaScript? (try/catch vs promises)
@@ -609,101 +660,20 @@ console.log(sum(1)(2)(3))
         Ensures a function is called at most once every n miliseconds.
         used for scroll, mouseevents
 
-# asynchronus programming : 
-    - Aynchonous programming allows javascript to perform long running operations (like network request, file reads, timers)
-    without blocking the main thread
-    
-    - why it is needed : 
-        - javascript is a single threaded ( one thing at a time)
-            - a slow operation like fetch() or setTimeout would freeze the whole UI
-            - aync code allows you schedule things to run later and continue immediately
-    - There are 3 ways to write asynchonous programming in javascript
-        1. Callback
-        2. Promise
-        3. aync/await 
-        - and all of this is powered by the javascript event loop under the hood.   
-    
-    ***1. Callback : 
-        - callback is a function that can passed as an argument to another function and it is executed later(usually after some aync task completes)
-        - real lfe example : you order a pizza and give your phone number. WHen its ready, they call you back 
-        - Drawback : if callback are nested too deeply - callback hell. its hard to read and maintain 
-        - Ex : 
-            function fetchData(callback) {
-              setTimeout(() => {
-                console.log("📦 Data fetched");
-                callback("✅ Data from server");
-              }, 1000);
-            }
-
-            function handleData(data) {
-              console.log("Callback received:", data);
-            }
-
-            fetchData(handleData);
-
-
-
-    ***2. Promise : 
-        - Promise is an object that represents the eventual completion or failure of an aynchronous operation
-            - pending : The operation is still in process 
-            - resolve :when it gets success 
-            - reject : when it gets failure 
-        - real time example : you order something online. they promise to deliver it. you can .then() when it arrives or .catch()
-        if it fails. 
-        - Ex :
-            let promiseData = new Promise((resolve, reject)=>{
-                setTimeout(()=> {
-                    // resolve("Data loaded ")   
-                    reject("Error occurred!");
-                },2000)
-            })
-
-            promiseData
-                .then(data => console.log("Promise resolved: ",data))
-                .catch(error => console.log("PROMISE Rejected :",error))
-
-
-    ***3. async/await : 
-        - async/await is syntactic sugar over promises 
-        - it makes asynchonous code look and behave like synchronous code 
-        - it helps you to write cleaner and more readable code when working with aynchronous operation like API calls, timers, file operations etc
-        - real time example : Instead of waiting callback, you just pause until the delivery arises then continue.
-        
-        - How it works :
-            - A function marked with async always returns a Promise 
-            - Inside an async function, you can use await to pause execution until a Promise is resolved or rejected. 
-            - await can only be used inside aync functions 
-
-        
-        function fetchData(){
-            return new Promise((resolve,reject)=>{
-                setTimeout(()=>{
-                    //resolve("user data loaded") //Success :  user data loaded
-                    reject("No data found"); //Error :  No data found
-                },1000)
-            })
-        }
-
-        async function displayUserData(){
-            try{
-                const data = await fetchData();
-                console.log("Success : ", data)
-            }catch(error){
-                console.log("Error : ", error)
-            }
-        }
-        displayUserData()
-
-
-
 # SSR and CSR
-
     - CSR : 
         - CSR stands for client side rendering 
-        - 
+        - in client side its rendering location is browsers 
+        - initial load speed slower
+        - SEO friendliness Poor ( without additional setup)
+        - interactivity : starts after JS loads 
     
     - SSR : 
         - SSR stands for server side rendering 
+        - in server side its rendering location is server
+        - initial load speed faster 
+        - SEO friendliness good
+        - Interactivity Immediate ( after HTML load)
 
 
 1. How does React handle reconciliation and virtual DOM updates?
