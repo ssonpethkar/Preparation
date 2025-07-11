@@ -9,46 +9,7 @@
         - It is strictly equality  
         - its compares value and type of variable
 
-2. 🔥 What is hoisting in JavaScript?
-    - Hoisting is a JS default behavior of moving values and variables to the top of the code before execution 
-    - Variables are declared with var are hoisted and initialized with undefined
-    - let and const are hoisted but not initialized , leading to temporal dead zone 
-    - functions declared using functions are fully hoisted 
 
-# How to Avoid Hoisting Issues in JavaScript
-| Practice                          | Why it helps                    |
-| --------------------------------- | ------------------------------- |
-| Use `let`/`const`                 | Prevents pre-declaration access |
-| Use arrow functions / expressions | Not hoisted                     |
-| Declare functions before use      | Avoids confusion                |
-| Avoid `var`                       | Reduces scope/hoisting issues   |
-| Use `'use strict'`                | Catches silent bugs             |
-
-
-3. 🔥 What is a closure in JavaScript?
-    - Closure is a javascript function that the inner function still get accessed of outer function varible if the outer function has finished excuting. 
-    - Closure is a javascript function that remembers variables from its outer score, even after that outer function has finished executing.
-    - closure is a javascript function that can accessed outer function variable in their inner function if the outer function has finished executing.
-
-4. 🔥 What is the difference between `var`, `let`, and `const`?
-    var : 
-        - var is function scoped
-        - variable declaration with var can be redeclared and reassigned 
-        - it is hoisted but initialized with undefined
-        - if we use var before declaration it gives undefined
-
-    let :
-        - let is blocked scoped
-        - variable declaration with let can be reassigned but can't be redeclared
-        - it is hoisted but not initialized ( in temporal dead zone)
-        - if we use let variable  before declaration that time it will throw reference error
-        (ReferenceError: Cannot access 'a' before initialization)
-    const :
-        - const is blocked scoped
-        - variable declaration with const can't be redeclared and reassigned.
-        - must be initialized at the time of declaration 
-        - if we use const variable  before declaration that time it will throw reference error
-        (ReferenceError: Cannot access 'a' before initialization)
 
 5. 🔥 What is the event loop in JavaScript?
     - Event loop is a mechanism that handles aynchronous operation like setTimeout , promises etc. 
@@ -102,6 +63,18 @@
     
 
 # * What are truthy and falsy values in JavaScript?
+falsy : false,0,-0,null,undefined,NaN
+        0n // BigInt zero
+        "" // Empty string
+
+truthy : 
+    true
+    "0", "false", " "   // non-empty strings
+    [], {}              // empty array, object
+    42, -1              // any non-zero number
+    Infinity, -Infinity
+    function(){}        // functions
+
 
 
 ---
@@ -109,24 +82,41 @@
 ### 🔁 Variables and Scope
 
 # * What are `var`, `let`, and `const`? How do they differ?
-    - var : 
-        - var is global scoped
-        - In var, it can be redeclared and reassigned variable
-        - variable is hoiseted and initialized as undefined 
-    - let 
-        - let is function scoped 
-        - can't be redeclared but can assigned 
-        - variable is hoisted but not initialized 
-    - const 
-        - const is blocked scoped 
-        - can't be redeclared and reassigned 
-        - must be initialized at the time of declarations
+    var : 
+        - var is function scoped
+        - variable declaration with var can be redeclared and reassigned 
+        - it is hoisted but initialized with undefined
+        - if we use var before declaration it gives undefined
+
+    let :
+        - let is blocked scoped
+        - variable declaration with let can be reassigned but can't be redeclared
+        - it is hoisted but not initialized ( in temporal dead zone)
+        - if we use let variable  before declaration that time it will throw reference error
+        (ReferenceError: Cannot access 'a' before initialization)
+    const :
+        - const is blocked scoped
+        - variable declaration with const can't be redeclared and reassigned.
+        - must be initialized at the time of declaration 
+        - if we use const variable  before declaration that time it will throw reference error
+        (ReferenceError: Cannot access 'a' before initialization)
 
 # * What is hoisting in JavaScript?
     - hoisting is javascript befault behaviour of moving variables and functions are moved to the top of code before execution
     - variables are declared with var is hoisted and initialized with undefined 
     - variabled declared with let and const are not initialized , its leading to temporal dead zone
     - functions are fully declared 
+
+
+# How to Avoid Hoisting Issues in JavaScript
+| Practice                          | Why it helps                    |
+| --------------------------------- | ------------------------------- |
+| Use `let`/`const`                 | Prevents pre-declaration access |
+| Use arrow functions / expressions | Not hoisted                     |
+| Declare functions before use      | Avoids confusion                |
+| Avoid `var`                       | Reduces scope/hoisting issues   |
+| Use `'use strict'`                | Catches silent bugs             |
+
 
 # * What is scope in JavaScript?
     - scope determines where in your code you can access (read/write) variables.
@@ -183,6 +173,17 @@
     
 # What is function currying? 
     - Currying breaks down a function that takes multiple parameter into a chain function that each take one parameter 
+    - Ex. 
+        function sum(a){
+            return function(b){
+                return function(c){
+                    return a+b+c;
+                }
+            }
+        }
+
+console.log(sum(1)(2)(3))
+
 
 # Pure functions : 
     - A pure functions return the same output given the same input and has no side effects
@@ -193,7 +194,7 @@
 ### ⏱️ Asynchronous JavaScript
 
 # * What is the event loop in JavaScript?
-    - event loop is a mechanisum to handle code asynchronously like setTimeout, promises
+    - event loop is a mechanisum to handle code asynchronously like setTimeout,setInterval, promises,callback, async/await
     - it runs in a single threaded enviornment and works with 
         - call stack 
         - web APIs
@@ -217,11 +218,26 @@
         - setTimeout is a in built  function that executes a function once after a specified delay
         - setTimeout(callback, delay);
         - to clear event used clearTimeout(timerId)
+        - Ex. 
+            setTimeout(()=>{
+                console.log
+            },1000) //executes only once
+        - to stop them 
+            const timeoutID = setTimeout(() => console.log("Will not run"), 3000);
+            clearTimeout(timeoutID); // cancels it
+
 
     - setInterval : 
         - setInterval is used to repeatedly execute a function at fixed time intervals 
         - setInterval(callback, interval);
         - to clear event used clearInterval(timerId)
+        - Ex. 
+            setInterval(()=>{
+                console.log
+            },1000) // executes on every interval
+        - to stop them 
+            const intervalID = setInterval(() => console.log("Repeating..."), 1000);
+            clearInterval(intervalID); // cancels it
 
 # * How do JavaScript timers (`setTimeout`, `setInterval`) work internally?
     - javascript is single threaded, it handles timers using the event loop and web API's 
@@ -232,28 +248,90 @@
         - the event loop is checks if the stack is empty
         - if yes, the callback is pushed to the call stack and executed.
 
-# * What is a promise in JavaScript?
-    - A promise is an object in javascript that represents a future result of an asynchronous operation 
-    - It has 3 possible states : 
-        - fulfilled/resolved : The operation completed successfully
-        - rejected : the operation failed
-        - pending :  The operation is still ongoing
+# asynchronus programming : 
+    - Aynchonous programming allows javascript to perform long running operations (like network request, file reads, timers)
+    without blocking the main thread
+    
+    - why it is needed : 
+        - javascript is a single threaded ( one thing at a time)
+            - a slow operation like fetch() or setTimeout would freeze the whole UI
+            - aync code allows you schedule things to run later and continue immediately
+    - There are 3 ways to write asynchonous programming in javascript
+        1. Callback
+        2. Promise
+        3. aync/await 
+        - and all of this is powered by the javascript event loop under the hood.   
 
-# * What is async/await in JavaScript?
-    - async/await is a synthetic sugar that allow to handle asynchronous code and behave like synchronous code
-    - it is used with promises to simplify handling asynchronus operations
-    - async function : 
-        - declares that function will return a promise 
-        - automatically wraps return values in a promise 
-    - await keyword : 
-        - can only be used inside async functio 
-        - pause the function until the promise is resolved or rejected 
-    `Ex :`
-        async function fetchData() {
-          let response = await fetch("https://api.example.com");
-          let data = await response.json();
-          console.log(data);
+#       ***1. Callback : 
+        - callback is a function that can passed as an argument to another function and it is executed later(usually after some aync task completes)
+        - real lfe example : you order a pizza and give your phone number. WHen its ready, they call you back 
+        - Drawback : if callback are nested too deeply - callback hell. its hard to read and maintain 
+        - Ex : 
+            function fetchData(callback) {
+              setTimeout(() => {
+                console.log("📦 Data fetched");
+                callback("✅ Data from server");
+              }, 1000);
+            }
+
+            function handleData(data) {
+              console.log("Callback received:", data);
+            }
+
+            fetchData(handleData);
+
+
+
+#    ***2. Promise : 
+        - Promise is an object that represents the eventual completion or failure of an aynchronous operation
+            - pending : The operation is still in process 
+            - resolve :when it gets success 
+            - reject : when it gets failure 
+        - real time example : you order something online. they promise to deliver it. you can .then() when it arrives or .catch()
+        if it fails. 
+        - Ex :
+            let promiseData = new Promise((resolve, reject)=>{
+                setTimeout(()=> {
+                    // resolve("Data loaded ")   
+                    reject("Error occurred!");
+                },2000)
+            })
+
+            promiseData
+                .then(data => console.log("Promise resolved: ",data))
+                .catch(error => console.log("PROMISE Rejected :",error))
+
+
+#    ***3. async/await : 
+        - async/await is syntactic sugar over promises 
+        - it makes asynchonous code look and behave like synchronous code 
+        - it helps you to write cleaner and more readable code when working with aynchronous operation like API calls, timers, file operations etc
+        - real time example : Instead of waiting callback, you just pause until the delivery arises then continue.
+        
+        - How it works :
+            - A function marked with async always returns a Promise 
+            - Inside an async function, you can use await to pause execution until a Promise is resolved or rejected. 
+            - await can only be used inside aync functions 
+
+        
+        function fetchData(){
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    //resolve("user data loaded") //Success :  user data loaded
+                    reject("No data found"); //Error :  No data found
+                },1000)
+            })
         }
+
+        async function displayUserData(){
+            try{
+                const data = await fetchData();
+                console.log("Success : ", data)
+            }catch(error){
+                console.log("Error : ", error)
+            }
+        }
+        displayUserData()
 
 
 # * How does `async`/`await` handle errors?
@@ -268,9 +346,65 @@
     - filter : it is used to iterate for a specific conditions only and returns a new array 
     - reduce : it is used to return a single value 
 
-    - map - map is method that creates a new array by applying a function on each element of the original array
-    - filter ; filter is method that creates a new array containing only the element that pass a test
-    - reduce : reduce method applies a function to accumulate array values into a single result 
+# difference between map, filter, reduce , forEach
+
+## `map()`
+    - Purpose**: Transforms each element in an array and returns a **new array**.
+    - Does **not** modify the original array.
+    - Always returns the **same length** as the original array.
+    - Ex.
+        const numbers = [1, 2, 3];
+        const doubled = numbers.map(num => num * 2); // [2, 4, 6]
+
+
+##  `filter()`
+    - Purpose**: Filters elements based on a condition and returns a **new array** of only the elements that match.
+    - Returns a **subset** of the original array.
+    - Does **not** modify the original array.
+    - Ex.
+        const numbers = [1, 2, 3, 4, 5];
+        const evens = numbers.filter(num => num % 2 === 0); // [2, 4]
+
+
+## `reduce()`
+
+    - Purpose**: Reduces the array to a **single value** by applying a function to each element, carrying over an accumulator.
+    - Can be used to calculate total, average, flatten arrays, etc.
+    - Can return any data type (number, object, array, etc.) 
+    - Ex
+        const numbers = [1, 2, 3, 4];
+        const sum = numbers.reduce((acc, curr) => acc + curr, 0); // 10
+        
+
+## `forEach()`
+    - Purpose**: Loops through each element for **side effects** (like logging or mutating something).
+    - Returns **undefined**
+    - Does **not** return a new array
+    - Often used for I/O, not transformations
+    - Ex
+        const numbers = [1, 2, 3];
+        numbers.forEach(num => console.log(num)); // 1 2 3
+        
+
+### 📊 Comparison Table
+
+| Method      | Returns New Array?   | Return Value          | Use Case                     |
+| ----------- | -------------------  | --------------------- | ---------------------------- |
+| `map()`     | ✅ Yes               | New transformed array | Transform each item          |
+| `filter()`  | ✅ Yes               | New filtered array    | Select specific items        |
+| `reduce()`  | ❌ No (single value) | Accumulated result    | Total, aggregation, etc.     |
+| `forEach()` | ❌ No                | `undefined`           | Side effects (logging, etc.) |
+
+---
+
+### 🧠 Summary
+
+* Use `map()` when you want to **transform** items.
+* Use `filter()` when you want to **select** items.
+* Use `reduce()` when you want to **accumulate** a single result.
+* Use `forEach()` when you're doing something that doesn’t require a return value.
+
+
 
 # * What is the difference between `Array.forEach()` and `Array.map()`?
     - forEach : 
@@ -326,7 +460,6 @@
         - it create same object reference and copies all nested object 
         - its slower
 
----
 
 ### 🧬 Objects and Inheritance
 
@@ -450,87 +583,3 @@
         Ensures a function is called at most once every n miliseconds.
         used for scroll, mouseevents
 
-# asynchronus programming : 
-    - Aynchonous programming allows javascript to perform long running operations (like network request, file reads, timers)
-    without blocking the main thread
-    
-    - why it is needed : 
-        - javascript is a single threaded ( one thing at a time)
-            - a slow operation like fetch() or setTimeout would freeze the whole UI
-            - aync code allows you schedule things to run later and continue immediately
-    - There are 3 ways to write asynchonous programming in javascript
-        1. Callback
-        2. Promise
-        3. aync/await 
-        - and all of this is powered by the javascript event loop under the hood.   
-    
-    ***1. Callback : 
-        - callback is a function that can passed as an argument to another function and it is executed later(usually after some aync task completes)
-        - real lfe example : you order a pizza and give your phone number. WHen its ready, they call you back 
-        - Drawback : if callback are nested too deeply - callback hell. its hard to read and maintain 
-        - Ex : 
-            function fetchData(callback) {
-              setTimeout(() => {
-                console.log("📦 Data fetched");
-                callback("✅ Data from server");
-              }, 1000);
-            }
-
-            function handleData(data) {
-              console.log("Callback received:", data);
-            }
-
-            fetchData(handleData);
-
-
-
-    ***2. Promise : 
-        - Promise is an object that represents the eventual completion or failure of an aynchronous operation
-            - pending : The operation is still in process 
-            - resolve :when it gets success 
-            - reject : when it gets failure 
-        - real time example : you order something online. they promise to deliver it. you can .then() when it arrives or .catch()
-        if it fails. 
-        - Ex :
-            let promiseData = new Promise((resolve, reject)=>{
-                setTimeout(()=> {
-                    // resolve("Data loaded ")   
-                    reject("Error occurred!");
-                },2000)
-            })
-
-            promiseData
-                .then(data => console.log("Promise resolved: ",data))
-                .catch(error => console.log("PROMISE Rejected :",error))
-
-
-    ***3. async/await : 
-        - async/await is syntactic sugar over promises 
-        - it makes asynchonous code look and behave like synchronous code 
-        - it helps you to write cleaner and more readable code when working with aynchronous operation like API calls, timers, file operations etc
-        - real time example : Instead of waiting callback, you just pause until the delivery arises then continue.
-        
-        - How it works :
-            - A function marked with async always returns a Promise 
-            - Inside an async function, you can use await to pause execution until a Promise is resolved or rejected. 
-            - await can only be used inside aync functions 
-
-        
-        function fetchData(){
-            return new Promise((resolve,reject)=>{
-                setTimeout(()=>{
-                    //resolve("user data loaded") //Success :  user data loaded
-                    reject("No data found"); //Error :  No data found
-                },1000)
-            })
-        }
-
-        async function displayUserData(){
-            try{
-                const data = await fetchData();
-                console.log("Success : ", data)
-            }catch(error){
-                console.log("Error : ", error)
-            }
-        }
-        displayUserData()
