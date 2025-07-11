@@ -176,7 +176,10 @@
 
 # * What are IIFEs (Immediately Invoked Function Expressions)?
     - A iife is a function that runs immediately after it is defined.
-
+    - Ex : 
+    (function(){
+        console.log("In IIFE")
+    })()
 
 # * What is a closure in JavaScript?
     - closure is a function that can accessed outer function variable to its inner functions after the outer function execution has finished.
@@ -186,10 +189,21 @@
 
 # Pure functions : 
     - A pure functions return the same output given the same input and has no side effects
+    function add(a,b){
+        return a+ b;
+    }
+    console.log(add(1,2))
+    console.log(add(1,2))
 
 # Memoization 
     - Memoization is a optimization technique to cache the  results of expensive function calls 
-    
+
+# anonymous functions: 
+    - Anonymous function is a function without a name. It is usually defined at runtime and often used as a callback or assigned to a variable
+
+# AJAX ( Asynchronous javascript and XML): 
+    - it is a technique used to send and receive data from a sever asynchronously without loading the web page\
+
 ### ⏱️ Asynchronous JavaScript
 
 # * What is the event loop in JavaScript?
@@ -291,11 +305,14 @@
         - extract a portion of the array 
         - doesn't modified original array
         - a new shallow copy
+        - array.slice(startIndex, endIndex)
+
 
     - splice : 
         - add/remove elements from the array 
         - modified original array 
         - removed element as a new array
+        - array.splice(startIndex, deleteCount, item1, item2, ...)
 
 
 # * What is destructuring in JavaScript?
@@ -390,6 +407,15 @@
 # * What is event delegation in JavaScript?
     - Event delegation is a technique that can attach event listeners on parent component instead of applying event listeners  on every child component. 
     - THis works because of event bubbling : events on child elements bubble up to parent 
+
+# what is event bubbling 
+    - event bubbling is a default behaviour of javascript where an event start from child element and bubbles up to its parent element.
+    - event bubbling is used for event delegation
+
+# what is event capturing
+    - event capturing is the event starts from parent element and travels down to the child elment 
+    - capturing is rare used when you need to intercepts events before they reach the target.
+
 
 # * What is the `this` keyword in JavaScript?
     - this refers to the object that is executing the current function 
@@ -534,3 +560,26 @@
             }
         }
         displayUserData()
+
+
+
+# SSR and CSR
+
+    - CSR : 
+        - CSR stands for client side rendering 
+        - 
+    
+    - SSR : 
+        - SSR stands for server side rendering 
+
+
+1. How does React handle reconciliation and virtual DOM updates?
+2. Can you explain the React rendering lifecycle and how re-renders can be optimized?
+3. How do you handle image optimization, lazy loading, and code splitting?
+4. Can you explain Callbacks, Promises, and Async/Await ?
+5. What is hoisting in JavaScript?
+6. Can you explain, call, apply and bind ?
+7. How would you implement global state management in a React app ?
+8. Explain event delegation in JavaScript.
+9. Can you explain Event Loop and Asynchronous JavaScript ?
+10. How would you implement a dark/light theme with persistence and scalability in mind?
