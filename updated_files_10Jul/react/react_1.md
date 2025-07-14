@@ -136,6 +136,7 @@
 
 # 31. What are Portals in react ?
 	- Portals let you render child component outside the parent component 
+	- it is used for hide/show models
 
 # 38. What are the different ways to pass data from child component to parent component in react ?
 	- using context API ( global or shared ) => shared state in deeply nested trees
@@ -186,8 +187,7 @@
 	
 	- useReducer : 
 		- useReducer is alternative of useState 
-		- useReducer is a react hook that allow functional component to managing complex state logic, especially when state updated depends 
-		on previous state or multiple actions 4
+		- useReducer is a react hook that allow functional component to managing complex state logic, especially when state updated depends on previous state or multiple actions 
 		- useReducer works by using a reducer function to handle state transition
 		- The reducer takes the current state and an action and returns new state
 		- useReducer hooks used when complex state logic and when multiple values are updated together (like form validation, redo/undo, ) 
@@ -195,8 +195,7 @@
 
 	- useEffect : 
 		- useEffect runs asynchronously
-		- useEffect is a react hook that let you perform side effect in functional component - like fetching data , subscribing to the events
-		 or updating the DOM.
+		- useEffect is a react hook that let you perform side effect in functional component - like fetching data , subscribing to the events or updating the DOM.
  		- It is similar to componentDidMount, componentDidUpdate and componentWillUnmount from class component
 		- you pass it a function that runs after render(after DOM paints). It also returns a cleanup functions for unmounting 
 		- There are 3 ways to use useEffects 
@@ -206,8 +205,7 @@
 
 	- useLayoutEffect
 		- useLayoutEffect runs synchronously
-		- useLayoutEffect is a react hook that works like same useEffect but it fires synchronously after all DOM mutations and 
-		before browser paints the screen
+		- useLayoutEffect is a react hook that works like same useEffect but it fires synchronously after all DOM mutations and before browser paints the screen
 		- used for DOM measurements 
 		- when you want to synchronously update layout before the screen paints
 
@@ -288,6 +286,25 @@
 # 32. What is context in react ?
 	Context in React is a way to share data globally across your component tree without having to pass props manually at every level.
 		
+# react hook 
+	- React Hooks are built-in functions introduced in React 16.8 that let you use state and other React features in functional components — without writing class components.
+
+#  What are the rules that must be followed while using React Hooks?
+	- 1. Only Call Hooks at the Top Level
+		❌ Don’t call Hooks inside:
+			- Loops
+			- Conditions
+			- Nested functions
+
+	- 2. Only Call Hooks from React Functions
+		❌ Don’t call Hooks from:
+			- Regular JavaScript functions
+			- Event handlers
+			- Class components
+
+		✅ Only call them from:
+			- Functional components
+			- Custom Hooks
 
 # 2. What is useMemo ?
 	- useMemo is a react hook that memoize the value, so its only recalculated when dependencies changes. This improves performance. 
@@ -379,8 +396,7 @@ State Reducer Pattern
 	This allows code reuse and dynamic rendering logic, especially for sharing stateful logic between components — similar to what you might use hooks for today.
 
 # What is forwardRef?
-	- React.forwardRef is a React API that allows you to pass a ref from a parent component to a child component, 
-	even if that child is a functional component.
+	- React.forwardRef is a React API that allows you to pass a ref from a parent component to a child component, even if that child is a functional component.
 	- Normally, refs don’t work with functional components unless you explicitly forward them.
 
 
@@ -394,8 +410,73 @@ State Reducer Pattern
 	- Why It Matters:
 		- Prevents unnecessary multiple renders
 
+#  How to prevent re-renders in React?
+	- 1. React.memo() for Functional Components
+	- 2. useMemo() to Memoize Expensive Calculations
+	- 3. useCallback() to Memoize Functions
+	- 4. Avoid Anonymous Functions in JSX
+	- 5. Split Components
+	- 6. PureComponent (Class Component Only)
+	- 7. Use key Wisely in Lists
 
-1. What are React Hooks, and how do they improve functional components?
+#  Does React Hook work with static typing?
+	Yes, React Hooks work very well with static typing, especially when using TypeScript.
+
+# What is React Router
+	- React Router is a routing library for React that enables you to build single-page applications (SPAs) with navigation without reloading the page.
+	- It allows different components to be rendered based on the URL path, while keeping your app fast and dynamic.
+
+| Feature                | Purpose                         |
+| ---------------------- | ------------------------------- |
+| `<Routes>` & `<Route>` | Define page components for URLs |
+| `useNavigate`          | Navigate programmatically       |
+| `useParams`            | Access URL parameters           |
+| `Link`, `NavLink`      | SPA navigation                  |
+| `Outlet`               | Nested routing                  |
+
+# Key Features of React Router
+	- Client-side routing (no full-page reloads)
+	- Route-based code splitting
+	- Dynamic route matching
+	- Nested routes
+	- Programmatic navigation
+	- Route parameters, query strings, redirects
+
+#  Can React Hook replaces Redux?
+	-  In many cases, React Hooks can replace Redux, but not always.
+
+
+# context API
+	- The Context API is a built-in React feature that allows you to share state or data globally across your app — without prop drilling (passing props manually through multiple component levels).
+
+# What is GraphQL?
+	- GraphQL is a query language for APIs where:
+		- You ask only for the data you need
+		- It uses a single endpoint
+		- It's faster than REST in many cases
+
+	- How to use 
+		-  Setup Apollo Client in React
+			npm install @apollo/client graphql
+	- index.js – Setup ApolloProvider
+	- Query Data with useQuery - App.js
+	- Mutate Data with useMutation - App.js
+
+| Step                 | Tool / Concept                     |
+| -------------------- | ---------------------------------- |
+| Setup GraphQL Client | Apollo Client                      |
+| Fetch data           | `useQuery()` + GraphQL query       |
+| Send data            | `useMutation()` + GraphQL mutation |
+| Server               | Needs GraphQL server or public API |
+| Schema               | GraphQL schema (types, resolvers)  |
+
+
+| Resolver             | Function that fetches data from DB |
+| useQuery(get,getById)  | Fetch data from server (e.g., users) |
+| useMutation            | Send data to server (e.g., create user) |
+(add,update,delete) 
+======================================================================================================
+# 1. What are React Hooks, and how do they improve functional components?
 Answer:
 React Hooks allow functional components to use state and lifecycle features without needing class components. The most common hooks are:
 
@@ -406,21 +487,19 @@ useReducer: Alternative to useState for complex state logic.
 Hooks improve reusability, reduce boilerplate code, and make components easier to test and maintain.
 
 ===========================================================================================
-2. How does Redux work, and when would you use it over Context API?
+# 2. How does Redux work, and when would you use it over Context API?
 Answer:
-Redux is a state management library that maintains a global state for an application. It follows a unidirectional data flow:
-
-Actions: Describe state changes.
-Reducers: Define how the state should change.
-Store: Holds the global state.
-Dispatch: Triggers state updates.
+	- Redux is a state management library that maintains a global state for an application. It follows a unidirectional data flow:
+		- Actions: Describe state changes.
+		- Reducers: Define how the state should change.
+		- Store: Holds the global state.
+		- Dispatch: Triggers state updates.
 
 Use Redux when:
-
-The app has a complex state that multiple components need access to.
-Predictable state transitions are necessary.
-Debugging and logging via Redux DevTools is needed.
-Context API is better suited for small-scale apps with simple state management needs.
+	- The app has a complex state that multiple components need access to.
+	- Predictable state transitions are necessary.
+	- Debugging and logging via Redux DevTools is needed.
+- Context API is better suited for small-scale apps with simple state management needs.
 ===========================================================================================
 3. What is the difference between useMemo and useCallback?
 Answer:

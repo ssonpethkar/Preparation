@@ -104,8 +104,8 @@ truthy :
 # * What is hoisting in JavaScript?
     - hoisting is javascript befault behaviour of moving variables and functions are moved to the top of code before execution
     - variables are declared with var is hoisted and initialized with undefined 
-    - variabled declared with let and const are not initialized , its leading to temporal dead zone
-    - functions are fully declared 
+    - variabled declared with let and const are hoisted but not initialized , its leading to temporal dead zone
+    - functions are fully declared  
 
 
 # How to Avoid Hoisting Issues in JavaScript
@@ -301,9 +301,8 @@ console.log(sum(1)(2)(3))
             - pending : The operation is still in process 
             - resolve :when it gets success 
             - reject : when it gets failure 
-        - real time example : you order something online. they promise to deliver it. you can .then() when it arrives or .catch()
-        if it fails. 
-        - Ex :
+        - real time example : you order something online. they promise to deliver it. you can .then() when it arrives or .catch()if it fails. 
+         - Ex :
             let promiseData = new Promise((resolve, reject)=>{
                 setTimeout(()=> {
                     // resolve("Data loaded ")   
@@ -623,6 +622,10 @@ console.log(sum(1)(2)(3))
         boundCar(); // Tesla goes 200 km/h
 
 
+# difference between promise and async/await         
+![difference_between_promise_and_async/await](image.png)
+
+
 # * How do you handle errors in JavaScript? (try/catch vs promises)
     1. Handling Errors with try...catch (Synchronous Code)
         - Used to catch runtime errors in synchronous code and prevent the app from crashing.
@@ -638,6 +641,10 @@ console.log(sum(1)(2)(3))
         - infinite sequence 
         - implementing iterators 
         - managing async flows (used with Redux-Saga)
+
+# what is iterator
+    -   an iterator is an object that defines a sequence and potentially a return value upon its completion.
+
 
 # * How does optional chaining (`?.`) work in JavaScript?
     - optional chaining allows you to safely access deeply nested properties without throwing an error if a property doesn't exists. 
@@ -675,14 +682,99 @@ console.log(sum(1)(2)(3))
         - SEO friendliness good
         - Interactivity Immediate ( after HTML load)
 
+# What are Template Literals in JavaScript?
+- Template Literals (also called template strings) are a feature in ES6 that allows you to:
+    - Embed variables and expressions directly inside strings.
+    - Write multi-line strings easily.
+    - Improve readability and string manipulation.
 
-1. How does React handle reconciliation and virtual DOM updates?
-2. Can you explain the React rendering lifecycle and how re-renders can be optimized?
-3. How do you handle image optimization, lazy loading, and code splitting?
-4. Can you explain Callbacks, Promises, and Async/Await ?
-5. What is hoisting in JavaScript?
-6. Can you explain, call, apply and bind ?
-7. How would you implement global state management in a React app ?
-8. Explain event delegation in JavaScript.
-9. Can you explain Event Loop and Asynchronous JavaScript ?
-10. How would you implement a dark/light theme with persistence and scalability in mind?
+# What Are Object Literals in JavaScript?
+- Object literals are a way to define and create plain objects using a simple and readable syntax.
+
+
+---------------------------------------------------------------------------------------------
+## **List of All Important ES6 Features**
+### 🔹 1. **Block Scoped Variables**
+* `let`
+* `const`
+
+### 🔹 2. **Arrow Functions**
+* Shorter function syntax
+* Lexical `this` binding
+
+### 🔹 3. **Template Literals**
+* String interpolation with backticks `` `Hello, ${name}` ``
+* Multi-line strings
+
+### 🔹 4. **Destructuring Assignment**
+* **Object Destructuring**
+* **Array Destructuring**
+
+### 🔹 5. **Default Parameters**
+* Assign default values to function parameters
+
+### 🔹 6. **Rest and Spread Operators**
+* `...rest` (in function arguments)
+* `...spread` (to expand arrays/objects)
+
+### 🔹 7. **Enhanced Object Literals**
+* Shorthand properties
+* Concise methods
+* Computed property names
+
+### 🔹 8. **Promises**
+* Better asynchronous code handling
+
+### 🔹 9. **Classes**
+* Class declarations and expressions
+* `constructor()`, `extends`, `super`
+
+### 🔹 10. **Modules**
+* `import` / `export`
+* Default and named exports
+
+### 🔹 11. **Iterators and Generators**
+* `for...of` loop
+* `Symbol.iterator`
+* Generator functions (`function*`)
+
+### 🔹 12. **Symbols**
+* Unique and immutable primitive data type
+
+### 🔹 13. **Map and Set**
+
+* `Map`: key-value pairs
+* `Set`: unique values
+
+### 🔹 14. **WeakMap and WeakSet**
+* Similar to `Map`/`Set` but with weak references (not enumerable)
+
+### 🔹 15. **New Built-in Methods**
+
+#### Array:
+
+* `Array.from()`
+* `Array.of()`
+* `find()`, `findIndex()`
+* `fill()`, `copyWithin()`
+
+#### String:
+* `includes()`
+* `startsWith()`, `endsWith()`
+* `repeat()`
+
+#### Number:
+* `Number.isNaN()`
+* `Number.isFinite()`
+* `Number.isInteger()`
+
+#### Math:
+* `Math.trunc()`, `Math.sign()`, `Math.cbrt()` and others
+
+### 🔹 16. **Object Enhancements**
+* `Object.assign()`
+* `Object.is()`
+* `Object.setPrototypeOf()`, `Object.getPrototypeOf()`
+
+### 🔹 17. **Tail Call Optimization** (optional in ES6)
+---------------------------------------------------------------------------------------------
