@@ -157,7 +157,7 @@
 	we can optimize react application using below methods 
 		- code splitting 
 		- memoization using useMemo, useCallback and React.memo
-		- visualization using React.lazy 
+		- visualization using React.lazy and React.window
 		- avoid rerenders 
 		- CDN ( content delivery network ) 
 		- debouncing
@@ -475,6 +475,87 @@ State Reducer Pattern
 | useQuery(get,getById)  | Fetch data from server (e.g., users) |
 | useMutation            | Send data to server (e.g., create user) |
 (add,update,delete) 
+
+
+# Explain lifting state up
+- Lifting state up is a pattern where the state of a child component is moved to its parent component, allowing multiple child components to share the same state.
+- Lifting up is a technique used in React to manage state in a component tree.
+- It involves moving state up the component tree to a parent component, so that it can be managed
+- Lifting up is used to avoid prop drilling, where props are passed down multiple levels in a component tree
+- It is used to manage state in a React application.
+
+# how many ways to render list in react
+1. Using map()(most common)
+2. Using forEach() (❌ Not Recommended for JSX)
+3. Using for loop
+4. Conditional Rendering with .map()
+5. Using Object.keys() / Object.entries() for object data
+
+# react query 
+	- React Query (now known as TanStack Query) is a powerful data-fetching and state management library for React applications. It simplifies fetching, caching, synchronizing, and updating server state without the boilerplate associated with tools like Redux or manual fetching using useEffect.
+
+# 15 explain redux in react ?
+- Redux is a state management library for React applications.
+- Redux helps to manage global state by providing a single source of truth for the state of the application
+- Redux uses the concept of actions, reducers, and stores to manage state.  
+- Redux is used to manage complex state in a React application.
+
+# 16 how to use redux in react ?
+- First, install the redux library using npm or yarn
+- Then, create a store using the createStore function from the redux library
+- Next, create actions using the createAction function from the redux library
+- After that, create a reducer using the combineReducers function from the redux library
+- Finally, connect the store to the React application using the connect function from the react-redux library
+- Redux is used to manage complex state in a React application.
+
+# Explain the Redux flow (Action → Reducer → Store → View).
+- Redux follows a unidirectional data flow. The core idea is that the state of an application is kept in a single store, and the only way to modify it is by dispatching actions that describe what should change.
+- The flow is as follows:
+  - An action is dispatched from a component .
+  - The action is then passed to the reducer.
+  - The reducer then updates the state of the store based on the action.
+  - The updated state is then passed to the view, which is then re-rendered with the new state.
+  
+
+1️⃣ View (User Interaction)
+     ⬇️ dispatch(action)
+2️⃣ Action (Describes what happens)
+     ⬇️ sent to reducer
+3️⃣ Reducer (Returns new state)
+     ⬇️ updates store
+4️⃣ Store (Holds the state)
+     ⬇️ UI re-renders
+5️⃣ View (Updated UI)
+
+# When to Use Redux?
+- When multiple components need shared state.
+- When the application state is complex and needs predictable management.
+- When debugging and testing state changes is important.
+
+# 10. what is a saga in react ?
+- A saga is a function that handles side effects in a Redux application .
+- A saga is used to handle asynchronous operations, such as API calls, in a Redux application.
+- A saga is often used for complex state management, such as managing multiple state variables or handling asynchronous
+
+# 11. what is a middleware in react ?
+- A middleware is a function that sits between the action and the reducer in a Redux application .
+- A middleware is used to handle side effects, such as API calls, in a Redux application.
+
+# 12. what is a thunk in react ?
+- A thunk is a function that returns a function, often used to handle asynchronous operations in a Redux application.
+- A thunk is used to handle side effects, such as API calls, in a Redux application.
+
+| Feature / Aspect         | **Axios**                           | **RTK Query (Redux Toolkit Query)**                          |
+| ------------------------ | ----------------------------------- | ------------------------------------------------------------ |
+| 🔧 **What is it?**       | A standalone **HTTP client**        | A **data fetching & caching layer** built  into Redux Toolkit |
+| 🧠 **State Management?** | ❌ No (you manage state manually)    | ✅ Yes – integrates with Redux automatically                  |
+| 💾 **Caching?**          | ❌ Manual                            | ✅ Built-in (auto caching, invalidation, re-fetch)            |
+| 🔁 **Refetching?**       | ❌ Manual                            | ✅ Automatic on focus, reconnect, or polling                  |
+| 📦 **Dependencies**      | Just Axios                          | Redux Toolkit (Redux + RTK Query)                            |
+| 🔌 **Interceptors?**     | ✅ Yes (easy request/response hooks) | ⚠️ Limited (not as flexible as Axios)                        |
+| ⚙️ **Customization**     | ✅ High (manual control)             | 🟡 Less – follows Redux abstraction                          |
+| 🧪 **Testing**           | ✅ Simple (mock requests)            | 🟡 Requires mocking Redux slice / store                      |
+
 ======================================================================================================
 # 1. What are React Hooks, and how do they improve functional components?
 Answer:

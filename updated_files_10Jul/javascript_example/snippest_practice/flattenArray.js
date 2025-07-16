@@ -71,19 +71,19 @@ console.log(flattenWithReduce(arr2))
 // var arr1 = [2,53,5,3,46,73,5,[3,5,3,5,64,2,1,[2,3,5,3]]]
 var arr1 = [2,53,5,3,[46,73,5],[3,5,[3,5],64,2,1,[2,3,5,3]]]
 
-function flattenArr(arr1){
+function flattenArr(arr1,depth){
     var result = []
     for (var i=0; i<arr1.length; i++){
         // console.log(arr1[i])
-        if(Array.isArray(arr1[i])){
-            result = result.concat(flattenArr(arr1[i]))
+        if(Array.isArray(arr1[i])&& depth>0){
+            result = result.concat(flattenArr(arr1[i],depth-1))
         }else{
             result.push(arr1[i])
         }
     }
     return result;
 }
-
-console.log(flattenArr(arr1))
+var depth=2
+console.log(flattenArr(arr1,depth))
 
 
