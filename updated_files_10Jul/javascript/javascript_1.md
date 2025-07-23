@@ -269,7 +269,7 @@ console.log(sum(1)(2)(3))
     - why it is needed : 
         - javascript is a single threaded ( one thing at a time)
             - a slow operation like fetch() or setTimeout would freeze the whole UI
-            - aync code allows you schedule things to run later and continue immediately
+            - async code allows you schedule things to run later and continue immediately
     - There are 3 ways to write asynchonous programming in javascript
         1. Callback
         2. Promise
