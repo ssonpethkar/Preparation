@@ -737,11 +737,36 @@ Task: Optimize component rendering without breaking functionality.
 Action: Used React.memo, useMemo, and useCallback to minimize unnecessary renders.
 Result: Improved load time by 40% and enhanced user experience.
 
+===================================================================================================
+## LTI 
+
+- How would you center a div inside a div?
+-Tree shaking and bundling in modern JavaScript applications.
+-Have you worked with any state management libraries like Zustand?
+-Techniques for React performance optimization.
+-Write a function to check if a string is a palindrome without using the reverse string logic.
+-What is the output of console.log(this)?
+-Difference between arrow functions and regular JavaScript functions.
+-Write a program to create a promise and an async/await function.
+-Several output-based questions on var keyword, hoisting, and async/await.
+- What are closures in JavaScript?
+- If you receive 5000 records in one API call, how would you efficiently display them in a dropdown?
+- How is async/await different from promises?
+- What do the caret (^) and tilde (~) signs represent in package.json?
+- What are dev dependencies in package.json?
+- What is Node.js and the event loop?
+- Can you explain hoisting in JavaScript? For example: output of the below code. 
+ a = 10; 
+ console.log(a);
+var a;
+- How does 'this' behave in Node.js? Is it the same as in a browser console?
+- Write code for mul(2)(3)(4) = 24.
+- Have you worked with Axios? 
+-What are interceptors in Axios?
+- Why do we need the useRef hook in React?
 
 
-
-
-
+===================================================================================================
 # 50. What are the differences between create element vs clone element in react ?
 # 51. When to use useState and useReducer?
 # 52. What are protected routes in react ?
@@ -820,3 +845,50 @@ Performance & Optimization
 48. What is server-side rendering (SSR), and its benefits?
 49. Implement lazy loading of images?
 50. Tools to measure and improve React performance?
+
+===================================================================================================
+00:00 - React Interview Questions
+01:12 - Differentiate Between Virtual DOM and Real DOM
+03:10 - What is React?
+04:32 - What is the meaning of Virtual DOM?
+05:51 - What are some of the important features of React?
+07:24 - What is the meaning of JSX?
+08:41 - Can browser read a JSX File?
+09:53 - Why is React widely used today?
+11:48 - Are there any Disadvantages to using react?
+13:32 - Differentiate between Angular and React
+14:44 - What is the meaning of the component based architecture of react?
+15:56 - How does rendering work in React?
+16:55 - What are states in React?
+18:37 - What is the use of an arrow function in React?
+19:47 - What is a higher-order component in React?
+20:56 - What us the meaning of create-react-app in React?
+21:52 - What are some of the advantages of using create-react-app n React?
+23:00 - What is the meaning of Redux?
+24:19 - What is the difference between props and states?
+25:21 - What are the three phases of a component life cycle in React?
+26:48 - What are events in React?
+27:47 - How are events created in React?
+28:45 - How is routing in React different from conventional routing?
+30:25 - Differentiate between Flux and Redux in React
+32:00 - Can AJAX be used with React?
+33:06 - What is the meaning of synthetic events in React?
+34:05 - What are stateful components in React?
+34:57 - What are refs in React?
+36:04 - What are Controlled Components in React?
+37:02 - Why is a router required in React?
+38:11 - What are the components of Redux in React?
+39:12 - What are the advantages of using Redux?
+40:37 - What are the disadvantages of using MVC in React?
+41:58 - What are pure components in React?
+43:04 - What are higher-order components (HOCs) used for?
+44:02 - What are keys in React?
+45:06 - Differentiate between a controlled components and an uncontrolled components in React
+46:05 - How can you tell React to build in the production mode?
+47:40 - What is the use of the second argument that is passed to set state? is it optional?
+49:33 - What is the Strict Mode component used in React?
+50:25 - What would you do if your React application is rendering slowly?
+51:50 - What would you do if react application is rendering slowly?
+54:26 - What are the predefined prop types presentin React?
+55:13 - What is React Fiber?
+56:02 - What are Hooks in React?
