@@ -72,3 +72,24 @@ console.log(a); //11
 // console.log(b); 
 
 
+function check() {
+    return 100
+}
+var check;
+console.log(check); //[Function: check]
+
+
+
+
+// package.json vs package-lock.json
+// dev dependencies vs normal dependencied 
+// transitive dependencies 
+// tield operator vs carrot operator
+// polyfill
+// let const
+// how we can handle asynchronous
+// first class function
+// destructuring 
+// phases of event propogation
+// event targeting
+
