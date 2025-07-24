@@ -138,7 +138,7 @@ truthy :
 ### 🧩 Functions
 
 # * What is a function in JavaScript?
-    - A function is a reuable block of code designed to perform a specific task. it runs only when it is called/invoked.
+    - A function is a reusable block of code designed to perform a specific task. it runs only when it is called/invoked.
 
 # * What is a callback function?
     - A callback function is a function that can passed as an argument to another function and is executed later( after some event or task)
@@ -152,7 +152,7 @@ truthy :
         - function greet(){}
         - it is hoisted can be used before declartion
         - must have name
-        - Not stored in variable
+        - Not stored in variable you can stored function reference 
 
     - Function Expression :
         - const num = function (){} 
@@ -196,6 +196,14 @@ console.log(sum(1)(2)(3))
     console.log(add(1,2))
     console.log(add(1,2))
 
+# Impure Function
+An impure function is a function that:
+    - May return different results for the same input.
+    - Causes side effects, such as:
+        Changing a global variable
+        Modifying input data
+        Performing I/O operations
+
 # Memoization 
     - Memoization is a optimization technique to cache the  results of expensive function calls 
 
@@ -216,6 +224,23 @@ console.log(sum(1)(2)(3))
         - microtask queue 
     - it follows flow like 
         - when call stack empty then check micostask queue then check callback queue and repeat   
+
++----------------------+
+|     Call Stack       |
+|----------------------|
+|   Executes functions |
++----------|-----------+
+           ↓
++-----------------------+
+|  Web APIs (setTimeout)|
++----------|------------+
+           ↓
++------------------+    +-----------------+
+| Callback Queue   | <- | Microtask Queue |
++------------------+    +-----------------+
+           ↓
+     Event Loop ⟳   →  Moves tasks from queue → stack when empty
+
 
 # * What is the difference between synchronous and asynchronous JavaScript?   
     - javascript is a single threaded language which means it can only execute the one task at a time.
@@ -496,9 +521,14 @@ console.log(sum(1)(2)(3))
     - shallow copy : 
         - it copies only outer object. doesn;t copy nested object
         - its faster
+            Copies primitive values (like numbers, strings) by value.
+            Copies non-primitive values (objects, arrays) by reference.
+            Changes to nested objects affect both original and copy.
     - deep copy : 
         - it create same object reference and copies all nested object 
         - its slower
+            Copies everything, including nested objects/arrays.
+            No references are shared between the original and the copy
 
 
 ### 🧬 Objects and Inheritance
@@ -796,5 +826,11 @@ console.log(sum(1)(2)(3))
 | Programmatic construction | `Array.from({ length: n }, (_, i) => ...)`     |
 
 
+# Event Propagation:
+    - Event propagation is the process by which events travel through the DOM in phases when an event is triggered.
+    - Phases of Event Propagation:
+        - Capturing phase (top → target)
+        - Target phase (event reaches target element)
+        - Bubbling phase (target → top)
 
 
