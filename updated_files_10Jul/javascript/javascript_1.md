@@ -721,6 +721,11 @@ An impure function is a function that:
 # What Are Object Literals in JavaScript?
 - Object literals are a way to define and create plain objects using a simple and readable syntax.
 
+# polyfill
+- A polyfill is a piece of code that provides a fallback implementation for a feature that is not natively supported by a browser or environment.
+- It is used to ensure that a feature works across different browsers and environments, even if the featur is not supported by all of them.
+- Polyfills are often used to add support for new features in older browsers, or to add support for features that are not yet implemented in a browser.
+- Polyfills can be implemented using JavaScript, and can be used to add support for features such as Array.prototype.includes(), Object.assign(), and Promise.prototype.catch().
 
 ---------------------------------------------------------------------------------------------
 ## **List of All Important ES6 Features**

@@ -1,7 +1,7 @@
 
 # 1. What is React?
 	- React is developed by facebook in Mar 2013
-	- React is open source javascript library for building user interfaces for crating single page web application. 
+	- React is open source javascript library for building user interfaces to creating single page web application. 
 	- React uses component based architecture and virtual dom for faster rendering 
 	- It allows developer to create reusable UI components 
 
@@ -138,6 +138,14 @@
 	- Portals let you render child component outside the parent component 
 	- it is used for hide/show models
 
+| Use Case      | Why Portals Help                                  |
+| ------------- | ------------------------------------------------- |
+| Modals        | Avoid nesting issues with CSS `z-index` or layout |
+| Tooltips      | Position over any UI regardless of hierarchy      |
+| Dropdowns     | Render above overflow-hidden/scrollable areas     |
+| Context Menus | Similar positioning and z-index advantages        |
+
+
 # 38. What are the different ways to pass data from child component to parent component in react ?
 	- using context API ( global or shared ) => shared state in deeply nested trees
 	- using state management libraries ( redux, zustand , etc) => centralized and app-wide state
@@ -254,7 +262,8 @@
 			- avoiding re-renders that happens with useState
 			- storing previous values ( like a previous props or state)
 	
-	
+	- React.Memo
+		- React.memo is a higher-order component in React that helps optimize performance by memoizing a component. It prevents unnecessary re-renders by reusing the previous render output if the component’s props haven’t changed.
 
 # 7. What is component life cycle of React class component ?
 	Component life cycle methods are special methods that get called at various stages of component life cycle 
@@ -305,39 +314,6 @@
 		✅ Only call them from:
 			- Functional components
 			- Custom Hooks
-
-# 2. What is useMemo ?
-	- useMemo is a react hook that memoize the value, so its only recalculated when dependencies changes. This improves performance. 
-	- useMemo is react hook that memoizes the result of a function so its only recalculated when they needed. 
-	- It improves performance by avoiding expensive or repeated calculations on every render 
-	- useMemo takes 2 arguments 
-		1. the 1st argument is a function that returns a value 
-		2. the 2nd argument is dependency array 
-		3. react remembers the value from the previous render and only re-runs the function if dependencies (a,b) have changed.
-	- useMemo is used when you have a computationally expensive function
-
- 	
-# 24. What is useCallback ?
-	- useCallback is a react hook that memoize a function - it returns the same function reference between renders unless dependencies change.
-		- it helps avoid unnecessary re-creation of function which is useful when passing callbacks to child component that rely on reference equality (like react.Memo).
-		- work :
-			- define a function inside useCallback 
-			- passed dependency array 
-			- react will re-create the function only when one of dependencies changes 
-			- otherwise it returns a same function instance helping to avoid unnecessary renders.
-		- it is used when you can pass a function as a prop to React.memo components.
-		- when your component has frequent renders and you want to optimize performance. 
-		- the function is used in event handlers, effect or callbacks that depends om stable references.
-
-
-# 30. What is useReducer hook ?
-	- useReducer : 
-		- useReducer is alternative of useState 
-		- useReducer is a react hook that allow functional component to managing complex state logic, especially when state updated depends on previous state or multiple actions 4
-		- useReducer works by using a reducer function to handle state transition
-		- The reducer takes the current state and an action and returns new state
-		- useReducer hooks used when complex state logic and when multiple values are updated together (like form validation, redo/undo, ) 
-		- syntax : const [state, dispatch] = useReducer(reducerFunction, initialValue)
 
 
 # 25. What are the differences between useMemo and useCallback ?
@@ -556,6 +532,14 @@ State Reducer Pattern
 | ⚙️ **Customization**     | ✅ High (manual control)             | 🟡 Less – follows Redux abstraction                          |
 | 🧪 **Testing**           | ✅ Simple (mock requests)            | 🟡 Requires mocking Redux slice / store                      |
 
+
+# Code splitting 
+	- is a performance optimization technique in modern JavaScript applications (especially React) that allows you to split your code into smaller chunks and load them on demand, rather than sending one big bundle to the user upfront.
+	- How Code Splitting Works in React
+		- React uses dynamic import() and React.lazy to enable code splitting.
+			1.  1. Using React.lazy + Suspense (for Components)
+			 2. Code Splitting by Route (React Router v6)
+			 
 ======================================================================================================
 # 1. What are React Hooks, and how do they improve functional components?
 Answer:
