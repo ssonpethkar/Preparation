@@ -39,7 +39,7 @@
 # 6. What is Virtual Dom ?
 	- Virtual dom is a lightweight copy of real dom 
 	- react keeps copy of real dom (means virtual dom) in memory, when changes occur 
-		- firstly react updates DOM
+		- firstly react creates new virtual DOM
 		- then compares new virtual DOM to previous one ( using diffing algorithm for comparison)
 		- then they applies only necessary changes to the real DOM ( using reconcillation)  
     - it is used to render UI efficiently its only rerender updated part instead of rerendering entire react application 
@@ -272,7 +272,7 @@
 	2. Updating phase
 	3. Unmounting phase 
 	
-	1. Mounting phase : In Mounting phase, when component is created and added to the DOM 
+	1. Mounting phase : In Mounting phase, when component is crea+ted and added to the DOM 
 	there are 4 methods 
 		1. constructor
 		2. getDerivedStateFromProps

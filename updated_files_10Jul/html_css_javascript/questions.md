@@ -63,3 +63,13 @@ Here are all the questions listed across the three images from your notebook:
 9. Box model
 
 
+semantic tags div/span 
+block inline 
+flex grid 
+simple layout 
+box sizing - px vh vw 
+absolute relative 
+display: none and visibility: hidden
+
+
+flex ,grid, pseudo classes, specificity , positions , semantic tags, box model, display, visibility, box sizing, pseudo elements, pseudo classes, specificity, positions,
