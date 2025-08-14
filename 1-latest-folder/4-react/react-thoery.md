@@ -751,128 +751,166 @@ var a;
 
 
 ===================================================================================================
-# 50. What are the differences between create element vs clone element in react ?
-# 51. When to use useState and useReducer?
-# 52. What are protected routes in react ?
-# 53. What is react-router has context menu
-# 54. What is react query, react profiler
-# 55. lifting state up 
-# RXJs
 
-# 10. What are synthetic events in react ?
-# 11. What are the difference between Package.json and Package.lock.json ?
-# 12. What are the differences between client side and server side rendering ?
-# 19. What are Ref’s in React?
-# 20. What is meant by forward ref ?
-# 39. Practical question: How to send data from child to parent using callback functions ?
-# 40. Practical question: How to send the data from child component to parent using useRef ?
-# 35. Practical question: create a custom hook for increment/decrement counter ?
-# 33. Practical question: Give an example of context api usage ?
+### 9. How do you use event handling in React.js?
+    - Event handling in React.js is done using the `onEventName` syntax, where EventName is the name of the event you want to handle, such as `onClick` or `onSubmit`.
+    - Event handlers are passed as props to the component and are typically defined as arrow functions or bound methods.
 
 
-Basics
-What is React.js, and its key features?
-What is JSX, and how does it differ from JavaScript?
-What is the Virtual DOM, and why is it important?
-Components vs. elements in React?
-Functional vs. class components?
-Purpose of render() in class components?
-Significance of key prop in lists?
-How does React handle events, and what are synthetic events?
-Controlled vs. uncontrolled components?
-What are props, and how are they used?
+### 11. How do you use forms and form validation in React.js?
+    - Forms and form validation in React.js are typically implemented using controlled components, where the form input values are stored in the state and updated as the user interacts with the form.
+    - Form validation is then performed by checking the values in the state against a set of rules.
 
-State & Lifecycle
-11. What is state, and how does it differ from props?
-12. How to update state in React?
-13. Purpose of setState() and why is it asynchronous?
-14. What are lifecycle methods? Name a few.
-15. componentDidMount in functional components?
-16. Purpose of shouldComponentUpdate?
-17. How to handle side effects in functional components?
-18. What happens with multiple setState() calls in a function?
-19. Purpose of getDerivedStateFromProps?
-20. Prevent unnecessary re-renders?
 
-React Hooks
-21. What are React Hooks, and why introduced?
-22. What is useState, and how does it work?
-23. What is useEffect, and its common use cases?
-24. How does useContext work, and when to use it?
-25. useReducer vs. useState?
-26. Purpose of useCallback?
-27. How does useMemo improve performance?
-28. Rules of using Hooks?
-29. How to create a custom Hook?
-30. What is useRef, and its use cases?
+### 12. How do you handle routing in a React.js application?
 
-Routing & State Management
-31. What is React Router, and how to implement it?
-32. BrowserRouter vs. HashRouter?
-33. How to pass parameters in React Router?
-34. What is Redux, and how does it work with React?
-35. Actions, reducers, and store in Redux?
-36. Purpose of middleware (e.g., Redux Thunk)?
-37. How does Context API work for state management?
-38. Redux vs. Context API: Pros and cons?
-39. Zustand or Recoil vs. Redux?
-40. Handle async actions in Redux?
+    - Routing in a React.js application is typically handled using a library such as React Router.
+    - This library provides components and APIs for defining routes and navigating between them.
 
-Performance & Optimization
-41. Optimize a React app’s performance?
-42. What is code-splitting, and how to implement it?
-43. React Lazy and Suspense: How do they work?
-44. How does React.memo optimize components?
-45. Common performance pitfalls in React?
-46. Purpose of PureComponent?
-47. Use React Profiler for performance issues?
-48. What is server-side rendering (SSR), and its benefits?
-49. Implement lazy loading of images?
-50. Tools to measure and improve React performance?
 
-===================================================================================================
-00:00 - React Interview Questions
-01:12 - Differentiate Between Virtual DOM and Real DOM
-03:10 - What is React?
-04:32 - What is the meaning of Virtual DOM?
-05:51 - What are some of the important features of React?
-07:24 - What is the meaning of JSX?
-08:41 - Can browser read a JSX File?
-09:53 - Why is React widely used today?
-11:48 - Are there any Disadvantages to using react?
-13:32 - Differentiate between Angular and React
-14:44 - What is the meaning of the component based architecture of react?
-15:56 - How does rendering work in React?
-16:55 - What are states in React?
-18:37 - What is the use of an arrow function in React?
-19:47 - What is a higher-order component in React?
-20:56 - What us the meaning of create-react-app in React?
-21:52 - What are some of the advantages of using create-react-app n React?
-23:00 - What is the meaning of Redux?
-24:19 - What is the difference between props and states?
-25:21 - What are the three phases of a component life cycle in React?
-26:48 - What are events in React?
-27:47 - How are events created in React?
-28:45 - How is routing in React different from conventional routing?
-30:25 - Differentiate between Flux and Redux in React
-32:00 - Can AJAX be used with React?
-33:06 - What is the meaning of synthetic events in React?
-34:05 - What are stateful components in React?
-34:57 - What are refs in React?
-36:04 - What are Controlled Components in React?
-37:02 - Why is a router required in React?
-38:11 - What are the components of Redux in React?
-39:12 - What are the advantages of using Redux?
-40:37 - What are the disadvantages of using MVC in React?
-41:58 - What are pure components in React?
-43:04 - What are higher-order components (HOCs) used for?
-44:02 - What are keys in React?
-45:06 - Differentiate between a controlled components and an uncontrolled components in React
-46:05 - How can you tell React to build in the production mode?
-47:40 - What is the use of the second argument that is passed to set state? is it optional?
-49:33 - What is the Strict Mode component used in React?
-50:25 - What would you do if your React application is rendering slowly?
-51:50 - What would you do if react application is rendering slowly?
-54:26 - What are the predefined prop types presentin React?
-55:13 - What is React Fiber?
-56:02 - What are Hooks in React?
+### 13. How do you use React.js with a state management library such as Redux?
+
+    - React.js can be used with a state management library such as Redux by integrating the Redux store with the React components.
+    - This allows for better management of shared state between components.
+
+
+### 14. What is the significance of Higher Order Components (HOC) in React.js?
+    - Higher Order Components (HOC) in React.js are components that wrap other components to add additional functionality.
+    - They are significant because they allow for code reuse and abstract common functionality into a single, reusable component.
+
+
+### 15. How do you use Hooks in React.js?
+
+Hooks were introduced in React 16.8 and allow for using state and other React features without writing a class component.
+Hooks make it easier to reuse logic between components and provide more flexible and concise code.
+They are significant because they allow for more flexible and concise code.
+
+
+### 16. How do you use Context API in React.js?
+
+    - The Context API in React.js is a feature that allows for sharing data between components without passing props down through multiple levels of components.
+    - This is useful for data that is needed by many components throughout an application.
+
+
+### 17. How can you optimize the performance of a React.js application?
+    - Performance of React.js applications can be optimized through techniques like using the `shouldComponentUpdate` lifecycle method and lazy loading.
+    - Memoization can also be used to improve the performance of React.js applications.
+
+
+### 18. How do you test React.js components?
+    - React.js components can be tested using various testing libraries, such as Jest and Enzyme.
+    - These libraries provide APIs for writing and running unit tests for React components.
+
+
+### 19. How does Server-side rendering work in React.js?
+
+    - Server-side rendering in React.js involves rendering the initial HTML on the server, rather than in the browser.
+    - This can help improve performance, especially for slower devices or low-bandwidth connections.
+
+
+
+### 20. How does React.js handle different types of errors?
+
+React.js handles different types of errors through various means, such as the `try-catch` statement, the use of error boundaries, and global error handling.
+Error boundaries are React components that catch JavaScript errors anywhere in their child component tree, log the errors, and display a fallback UI.
+
+---
+
+### 21. What is the significance of React.js lifecycle methods?
+
+React.js lifecycle methods are used to manage the various stages of a component's lifecycle, such as mounting, updating, and unmounting.
+Lifecycle methods can be used to perform actions such as fetching data, setting up subscriptions, or updating the component's state.
+
+---
+
+### 22. Can you explain how React's reconciliation algorithm works and why it's important?
+
+React's reconciliation algorithm is the process by which React updates the DOM in response to changes in the components' state or props.
+
+Here are three key points about how it works:
+
+1. **Virtual DOM:** React uses a virtual representation of the DOM, called the Virtual DOM, to keep track of changes and update the actual DOM efficiently.
+2. **Tree comparison:** When a change occurs, React compares the updated Virtual DOM tree with the previous Virtual DOM tree to determine the minimum number of updates required to bring the actual DOM into sync with the updated Virtual DOM.
+3. **Update optimization:** React uses heuristics and optimizations to minimize the number of updates required and make the update process as fast as possible.
+
+React's reconciliation algorithm is important because it allows React to update the user interface efficiently and with minimal overhead, making it well-suited for complex and dynamic applications. Additionally, the use of a Virtual DOM provides a clear separation between the user interface and the actual DOM, making it easier to reason about the behavior of the application.
+
+---
+
+### 23. Can you explain the concept of "lifting state up" in React and why it's important?
+
+"Lifting state up" is a concept in React that refers to the process of sharing state between multiple components by moving it from lower-level components to higher-level components.
+
+Here are three key points about why this is important:
+
+1. **Centralized management:** By lifting state up, you can centralize the management of state in one or a few higher-level components, making it easier to understand and maintain the application.
+2. **Reusability:** When state is lifted up, lower-level components that need access to that state can receive it as props. This makes it easier to reuse those components in different parts of the application, as they are not tightly coupled to the state.
+3. **Improved performance:** Moving state up can also help improve performance, as React's reconciliation algorithm can take advantage of the fact that only a few components are changing instead of having to update many components individually.
+
+---
+
+### 24. Can you explain the use of Redux with React and how it differs from using React's built-in state management?
+
+**Use of Redux with React:**
+
+* **Centralized store:** Redux is a state management library that provides a centralized store for the entire application. The store contains the state for the whole application and can be updated using actions and reducers.
+* **Improved scalability:** Redux makes it easier to manage the state of a large or complex application, as all the state is contained in a single store and updates are made using well-defined actions and reducers.
+* **Better separation of concerns:** By using Redux, you can separate the state management from the presentation of the components, making it easier to understand and maintain the application.
+
+**Difference between React's built-in state management and Redux:**
+
+* **Local vs global:** React's built-in state management is local to individual components, while Redux provides a global store for the whole application.
+* **Scalability:** React's built-in state management can become cumbersome in large or complex applications, while Redux provides a more scalable solution.
+* **Separation of concerns:** React's built-in state management is closely tied to the presentation of the components, while Redux provides a more modular and scalable solution by separating the state management from the presentation.
+
+---
+
+---
+
+## **Hard**
+
+### 25. Can you explain the difference between a stateless and stateful component in React?
+
+**Difference between stateless and stateful components in React:**
+
+* **State management:** Stateful components maintain their own state, while stateless components receive all the data they need as props from higher-level components.
+* **Reusability:** Stateless components are typically more reusable, as they do not maintain any state and rely solely on the props they receive.
+* **Performance:** Stateless components are typically faster and use less memory, as they do not have to manage their own state.
+
+---
+
+### 26. Can you explain the concept of "controlled components" in React and why they are important?
+
+**Concept of controlled components in React:**
+
+* **Controlled by React:** Controlled components in React are components that have their value and behavior controlled by React, rather than by the user or the DOM.
+* **Better control:** By controlling the value and behavior of a component, you can more easily manage the behavior of the component and ensure that it behaves as expected.
+* **Improved reliability:** Controlled components can help improve the reliability of your application, as you have more control over the behavior of the component and can ensure that it behaves as expected.
+
+---
+
+### 27. Can you explain the concept of "reactive updates" in React and how it differs from traditional data binding?
+
+**Concept of "reactive updates" in React:**
+
+* **Reactive nature:** Reactive updates in React refer to the way that React updates the user interface in response to changes in the data. React updates the UI reactively, meaning that it updates the UI in response to changes in the data.
+* **Improved performance:** Reactive updates can improve performance by only updating the parts of the UI that have changed, rather than re-rendering the entire UI.
+* **Dynamic updates:** Reactive updates allow for dynamic updates to the UI, as the UI is automatically updated in response to changes in the data.
+
+**Differences from traditional data binding:**
+
+* **Two-way vs one-way:** Traditional data binding often involves two-way binding, where changes in the UI can also update the data. In React, updates are one-way, with changes in the data causing updates to the UI.
+* **Declarative nature:** React uses a declarative approach to updating the UI, whereas traditional data binding often uses an imperative approach.
+* **Efficient updates:** React's reactive updates are more efficient than traditional data binding, as React only updates the parts of the UI that have changed.
+
+---
+
+### 28. Can you explain how React handles performance optimization, such as lazy loading and memoization?
+
+**React's performance optimization techniques:**
+
+* **Lazy loading:** Lazy loading in React involves loading components only when they are needed, rather than loading all components upfront. This can improve performance by reducing the amount of data that needs to be loaded and processed.
+* **Memoization:** Memoization in React involves caching the results of expensive computations so that they can be reused in the future, rather than recomputing the results each time. This can improve performance by reducing the amount of redundant computation.
+* **Virtual DOM:** React uses a virtual DOM, which is a lightweight in-memory representation of the actual DOM, to update the UI efficiently. This can improve performance by minimizing the number of actual DOM updates that are required.
+
+
